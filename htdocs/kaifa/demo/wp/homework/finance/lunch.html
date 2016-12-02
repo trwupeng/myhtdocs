@@ -1,0 +1,128 @@
+<html><head>
+    <title>登录</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+ <!--   <script>
+        var phoneScale = parseInt(window.screen.width)/640;
+        document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+    </script><meta name="viewport" content="width=640, minimum-scale = 2.134375, maximum-scale = 2.134375, target-densitydpi=device-dpi">-->
+    <style>
+        .bc1{
+            background-color: #D53736;
+        }
+        *{
+            font-family: 微软雅黑;
+            font-size: 40px;
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            padding: 20px;
+            margin: 20px;
+            width: 90%;
+        }
+        .submit{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            color: #ffffff;
+        }
+        div{
+            text-align: center;
+
+        }
+        form{
+            margin-top: 200px;
+        }
+        .head{
+            height: 100px;
+        }
+        .loading{
+            display:none;
+            opacity: 0.5;
+            width: 100%;
+            position: fixed;
+            height: 100%;
+            //border: 1px solid red;
+            background: #000000;
+            z-index: 99;
+        }
+        .loading img{
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="loading">
+    <img src="img/loading.gif">
+</div>
+<div class="head bc1">
+    <span></span>
+</div>
+<form action="index/login.php" onSubmit="sumbit">
+    <div>
+        <div>
+            <input name="phone" type="tel" placeholder="手机号">
+        </div>
+
+        <div>
+            <input name="pwd" type="password" placeholder="密码">
+        </div>
+        <div>
+            <button  type="submit" name="submit">登&nbsp;&nbsp;录</button>
+        </div>
+        <!--<script>
+            $('.submit').click(function(){
+                $('.loading').show();
+                data = {};
+                data.phone = $('[name=phone]').val();
+                data.pwd = $('[name=pwd]').val();
+                var url = "";
+
+                result = $.post(url,data,function(e,status,jqx){
+                    o = e;
+                    console.log(o);
+                    if(typeof(o.code)=='undefined'){
+                        alert('连接失败');
+                    }
+                    if(o.code=='200')window.location.href= o.returnUrl;
+                    if(o.code=='400')showAlert(o.msg);
+                }).error(function(e){
+                    showAlert('服务器错误！');
+                });
+            });
+
+            function showAlert($str){
+                //sleep(5);
+                $('.loading').hide();
+                alert($str);
+            }
+
+            function sleep(s){
+                date = new Date();
+                begin = date.getTime();
+                var num = 1;
+                var time = 0;
+                do{
+                    num++;
+                    now = new Date().getTime();
+                    keep = now-begin;
+                    if(keep/1000>time){
+                        time++;
+                        console.log("sleep:"+time);
+                    }
+                }while(keep<s*1000)
+            }
+        </script>-->
+    </div>
+    <div>
+
+    </div>
+</form>
+<script>console.log('_runtime:0.0053319931030273'+'s');</script></body></html>

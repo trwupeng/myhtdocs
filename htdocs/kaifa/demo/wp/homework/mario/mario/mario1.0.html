@@ -1,0 +1,50 @@
+<html><head>
+    <script>
+
+    </script>
+    <title>mario</title>
+    <style>
+        canvas{
+            border: 2px solid deepskyblue;
+        }
+        .dis{
+            width: 0;
+        }
+        a{
+            font-size: 1px;
+        }
+        .a{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a>地图坐标 x:</a><a id="x" class="a">0</a> y:<a id="y" class="a">0</a>
+<a>角色坐标 y:</a><a id="mx" class="a">59</a> y:<a id="my" class="a">250</a><a> 时间控制：</a><a id="t" class="a">0</a>
+<br>
+<a>鼠标坐标 x:</a><a id="mox" class="a">714</a> y:<a id="moy" class="a">236</a>
+<a> 角色相对地图的坐标 x:</a><a id="sx" class="a">59</a> y:<a id="sy" class="a">250</a>
+<br>
+<a> 鼠标相对地图的坐标 x:</a><a id="momx" class="a">714</a> y:<a id="momy" class="a">236</a>
+<a> 角色速度 mario.s:</a><a id="marios" class="a">0</a>
+<br>
+<canvas id="c" height="336" width="448">垃圾浏览器</canvas>
+<img id="menu" class="dis" src="img/menu.gif">
+<img id="hj_1" class="dis" src="img/hj_1.gif">
+<img id="hj_2" class="dis" src="img/hj_2.gif">
+<img id="sg_1" class="dis" src="img/sg_1.gif">
+<canvas id="cc" width="200" height="200" style="display: none">垃圾浏览器</canvas>
+<br>
+<script>
+    var H=document.getElementById('c').height=224*1.5;
+    var W=document.getElementById('c').width=H/3*4;
+</script>
+<script src="js/key.js"></script>
+<script src="js/control.js"></script>
+<script src="js/role.js"></script>
+<script src="js/scence.js"></script>
+<script></script>
+<script></script>
+
+
+</body></html>

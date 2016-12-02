@@ -1,0 +1,59 @@
+<html><head lang="en">
+    <meta charset="UTF-8">
+    <script src="evlisten.js"></script>
+    <script src="socket.io.js"></script>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script src="role.js"></script>
+    <script src="main.js"></script>
+    <title>剑圣1.0</title>
+    <style>
+        body{
+            font-family: '微软雅黑';
+            text-align: center;
+            background-color: #ffffff;
+        }
+        canvas{
+
+            cursor:url('img/cursor.ico'),pointer;
+            border: 5px solid black;
+            //background-image: url("img/bg2.png");
+            border-radius: 10px;
+        }
+        #div1{
+            background-color: white;
+        }
+        #div2{
+
+        }
+        #b1,#b2{
+            font-family: '微软雅黑';
+            width: 640px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+		table,td{
+			border:1px solid;
+		}
+        img{
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="can" width="640" height="480">你的浏览器不支持canvas技术,建议下载chrome谷歌浏览器</canvas><br>
+<div>
+    <button id="b2" disabled="">wasd上下左右 jk攻击跳跃 不攻击的时候是防御姿态</button>
+</div>
+<div>
+    <button id="b1" disabled="">复活</button>
+</div>
+<div id="divdie"></div>
+<audio id="kick" src="sound/kick1.wav" controls="controls">
+<div id="div1">
+    <div id="div2">
+        鼠标x：<a id="mx">643</a> 鼠标y：<a id="my">107</a>
+    </div>
+</div>
+
+
+</audio></body></html>

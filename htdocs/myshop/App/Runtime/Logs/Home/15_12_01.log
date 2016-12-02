@@ -1,0 +1,619 @@
+[ 2015-12-01T18:44:54+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Home\Model\CartModel.class.php 第 47 行.
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Runtime\Cache\Home\00e52909bed743ea261af4b6823297ff.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:01:33+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Home\Model\CartModel.class.php 第 47 行.
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Runtime\Cache\Home\00e52909bed743ea261af4b6823297ff.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:01:39+08:00 ] 127.0.0.1 /index.php/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Home\Model\CartModel.class.php 第 47 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Runtime\Cache\Home\16def5a3b8987acfc0c038a02e815a10.php 第 23 行.
+NOTIC: [8] Undefined variable: navdata D:\wamp\apache\htdocs\App\Runtime\Cache\Home\16def5a3b8987acfc0c038a02e815a10.php 第 44 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wamp\apache\htdocs\App\Runtime\Cache\Home\16def5a3b8987acfc0c038a02e815a10.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-01T20:01:54+08:00 ] 127.0.0.1 /index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+NOTIC: [8] Undefined index: user_id D:\wamp\apache\htdocs\App\Home\Model\CartModel.class.php 第 47 行.
+SQL: SHOW COLUMNS FROM `it_user` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `it_user` WHERE ( username='老王' ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-12-01T20:01:55+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:02:10+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select a.id,a.attr_id,a.attr_value,b.attr_name,b.attr_type from it_goods_attr a left join it_attribute b on a.attr_id=b.id where a.goods_id=3  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.069004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:02:12+08:00 ] 127.0.0.1 /index.php/Home/Cart/addCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( goods_id=3 and goods_attr_id='27' and user_id=1 )  [ RunTime:0.0000s ]
+SQL: INSERT INTO `it_cart` (`goods_id`,`goods_attr_id`,`goods_count`,`user_id`) VALUES ('3','27','1','1') [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:02:13+08:00 ] 127.0.0.1 /index.php/Home/Cart/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0720s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2015-12-01T20:02:15+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/3/goods_attr_id/27
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0000s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=3 and goods_attr_id='27' and user_id=1 ) [ RunTime:0.0330s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:02:18+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/3/goods_attr_id/27
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0000s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=3 and goods_attr_id='27' and user_id=1 ) [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-12-01T20:02:18+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/3/goods_attr_id/27
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0050s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0010s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=3 and goods_attr_id='27' and user_id=1 ) [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:02:21+08:00 ] 127.0.0.1 /index.php/Home/Order/checkout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0050s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_address` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_address` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navdata D:\wamp\apache\htdocs\App\Runtime\Cache\Home\55b28bf191d797a43952c31fd8a32194.php 第 49 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wamp\apache\htdocs\App\Runtime\Cache\Home\55b28bf191d797a43952c31fd8a32194.php 第 49 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:00+08:00 ] 127.0.0.1 /index.php/Home/Order/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_order_info` [ RunTime:0.0050s ]
+SQL: INSERT INTO `it_order_info` (`user_id`,`order_sn`,`goods_amount`,`addtime`,`consginee`,`address`,`mobile`,`payment`,`shipping`) VALUES ('1','sn_565d8c748c643','20000','1448971380','老王','上海帝国大厦','18868881688','2','5') [ RunTime:0.0960s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(27) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_order_goods` [ RunTime:0.0060s ]
+SQL: INSERT INTO `it_order_goods` (`order_id`,`goods_id`,`goods_name`,`goods_attr_id`,`shop_price`,`goods_number`) VALUES ('2','3','nokia','27','5000.00','4') [ RunTime:0.0670s ]
+SQL: DELETE FROM `it_cart` WHERE ( user_id=1 ) [ RunTime:0.0010s ]
+
+[ 2015-12-01T20:03:01+08:00 ] 127.0.0.1 /index.php/Home/Order/done/order_sn/sn_565d8c748c643.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navdata D:\wamp\apache\htdocs\App\Runtime\Cache\Home\21967daea8eb44a441deca64a9cde799.php 第 44 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wamp\apache\htdocs\App\Runtime\Cache\Home\21967daea8eb44a441deca64a9cde799.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:23+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2015-12-01T20:03:30+08:00 ] 127.0.0.1 /index.php/Home/Index/detail/id/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0000s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with that of Think\Model::_before_delete() D:\wamp\apache\htdocs\App\Admin\Model\GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select a.id,a.attr_id,a.attr_value,b.attr_name,b.attr_type from it_goods_attr a left join it_attribute b on a.attr_id=b.id where a.goods_id=2  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:33+08:00 ] 127.0.0.1 /index.php/Home/Cart/addCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_cart` WHERE ( goods_id=2 and goods_attr_id='22' and user_id=1 )  [ RunTime:0.0010s ]
+SQL: INSERT INTO `it_cart` (`goods_id`,`goods_attr_id`,`goods_count`,`user_id`) VALUES ('2','22','1','1') [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:35+08:00 ] 127.0.0.1 /index.php/Home/Cart/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-12-01T20:03:36+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/2/goods_attr_id/22
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=2 and goods_attr_id='22' and user_id=1 ) [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:37+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/2/goods_attr_id/22
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0000s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=2 and goods_attr_id='22' and user_id=1 ) [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-12-01T20:03:39+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/2/goods_attr_id/22
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=2 and goods_attr_id='22' and user_id=1 ) [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:40+08:00 ] 127.0.0.1 /index.php/Home/Cart/updateCart/goods_id/2/goods_attr_id/22
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0030s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: UPDATE `it_cart` SET `goods_count`=goods_count+1 WHERE ( goods_id=2 and goods_attr_id='22' and user_id=1 ) [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:41+08:00 ] 127.0.0.1 /index.php/Home/Order/checkout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_address` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_address` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: navdata D:\wamp\apache\htdocs\App\Runtime\Cache\Home\55b28bf191d797a43952c31fd8a32194.php 第 49 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wamp\apache\htdocs\App\Runtime\Cache\Home\55b28bf191d797a43952c31fd8a32194.php 第 49 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-12-01T20:03:49+08:00 ] 127.0.0.1 /index.php/Home/Order/flow
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0050s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `it_order_info` [ RunTime:0.0050s ]
+SQL: INSERT INTO `it_order_info` (`user_id`,`order_sn`,`goods_amount`,`addtime`,`consginee`,`address`,`mobile`,`payment`,`shipping`) VALUES ('1','sn_565d8ca587375','22500','1448971429','老王','上海帝国大厦','18868881688','2','5') [ RunTime:0.2320s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_thumb`,`shop_price` FROM `it_goods` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: select group_concat(concat(b.attr_name,':',a.attr_value)  separator '<br/>')attrs  from it_goods_attr a left join it_attribute b on a.attr_id = b.id where a.id in(22) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `it_order_goods` [ RunTime:0.0080s ]
+SQL: INSERT INTO `it_order_goods` (`order_id`,`goods_id`,`goods_name`,`goods_attr_id`,`shop_price`,`goods_number`) VALUES ('3','2','谷歌手机','22','4500.00','5') [ RunTime:0.0980s ]
+SQL: DELETE FROM `it_cart` WHERE ( user_id=1 ) [ RunTime:0.0020s ]
+
+[ 2015-12-01T20:03:50+08:00 ] 127.0.0.1 /index.php/Home/Order/done/order_sn/sn_565d8ca587375.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `it_cart` WHERE ( user_id=1 )  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: navdata D:\wamp\apache\htdocs\App\Runtime\Cache\Home\21967daea8eb44a441deca64a9cde799.php 第 44 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wamp\apache\htdocs\App\Runtime\Cache\Home\21967daea8eb44a441deca64a9cde799.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

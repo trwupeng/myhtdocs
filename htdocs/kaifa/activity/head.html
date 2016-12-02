@@ -1,0 +1,633 @@
+<html lang="zh-CN" style="height: 100%"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="寒小航,word哥">
+    <meta name="keywords" content="寒小航,">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="any" mask="" href="/favicon.ico">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>厉害了,word哥</title>
+    <style>
+        .tgh-subfl >*{
+            float: left;
+        }
+        .tgh-subfr >*{
+            float: right;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .tgh-subfl:after{
+            clear: both;
+            content: ".";
+            display: block;
+            visibility: hidden;
+            height: 0;
+        }
+        .bg-white{
+            background-image: linear-gradient(to bottom, #fcfcfc 0, white 100%);
+        }
+        .bg-black{
+            background-image: linear-gradient(to right,black 0,#333333 100%);
+        }
+        body{
+            position: relative;
+            font-family: Arial,微软雅黑;
+        }
+        .logOut{
+            cursor: pointer;
+            color: gray;
+        }
+        .logOut:hover{
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body role="document" style="height: 100%;">
+<div class="modal bs-example-modal-sm " id="loading" style="z-index: 9999;margin-top: 40%" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="text-align: center">
+            <img width="50" src="upload/img/loading.gif">
+        </div>
+    </div>
+</div>
+<div class="modal bs-example-modal-sm " id="alertShow" style="z-index: 9999;" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="text-align: center">
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form action="#" method="post" onSubmit="return false;" id="loginForm">
+                <div class="modal-body">
+                    <div class="alert alert-danger loginAlert" role="alert" style="display: none">错误</div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">手机号</label>
+                        <input name="phone" type="number" class="form-control" id="exampleInputEmail1" placeholder="手机号">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input name="pwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/index/register" class="btn">没有帐号?</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary ajaxLogin">登录</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div data-dismiss="alert" class="alert alert-dismissible" id="warning" role="alert" style="z-index: 9999;position: fixed;width: 100%;text-align: center;display: none;padding: 5px;">
+
+</div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">trwupeng</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active" id="nav-home"><a href="http://www.lianxi.com/kaifa/activity/head.html">首页</a></li>
+                <li class="dropdown" id="nav-activity">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">活动<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://www.lianxi.com/kaifa/activity/index.html">抽奖</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+<!--                <li class="" id="nav-home"><a href="--><!--">社区</a></li>-->
+            </ul>
+            <div class="fr" style="color: #ffffff;line-height: 50px">
+                <a style="cursor: pointer;color: #ffffff" href="/index/login">登录</a>            </div>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div style="height: 50px;"></div>
+<script>
+    showLogin = function(){
+        console.log('showLogin...');
+        $('#loginModal').modal({})
+    }
+
+    navActive = function(id){
+        $('#'+id).addClass('active');
+    }
+    loading = {
+        show : function(msg){
+            $('#alertShow').find('.modal-content').html(msg)
+            $('#alertShow').modal({})
+        },
+        open : function(msg){
+            $('#loading').modal({})
+        },
+        close : function(){
+            $('#loading').modal('hide')
+        }
+    };
+    warning = {
+        error : function(msg){
+            this.typeInit();
+            $('#warning').addClass('alert-danger');
+            $('#warning').html(msg);
+            this.alert();
+        },
+        success : function(msg){
+            this.typeInit();
+            $('#warning').addClass('alert-success');
+            $('#warning').html(msg);
+            this.alert();
+        },
+        alert : function(){
+            $('#warning').slideDown();
+            setTimeout(function(){
+                warning.close();
+            },2000);
+        },
+        close : function(){
+            $('#warning').slideUp();
+        },
+        typeInit : function(){
+            $('#warning').removeClass('alert-success')
+            $('#warning').removeClass('alert-danger')
+        }
+    }
+    $(function(){
+        //高度100%减去margin
+        $('.marginHeightMax').each(function(){
+            var data = {}
+            data.top = $(this).css("marginTop").replace('px', '');
+            data.bottom = $(this).css("marginBottom").replace('px', '');
+            var jan = parseInt(data.top) + parseInt(data.bottom);
+            console.log($(this).height());
+            console.log(data);
+            $(this).height($(this).height() - jan);
+        });
+
+        $('.logOut').click(function(){
+            var api = '/index/logout?__VIEW__=json';
+            $.post(api,function(data){
+                location.href = '';
+            });
+        });
+
+        $('body').append("<img width='150' class='hidden-xs' style='max-width: 40%;position: absolute;right: 0;bottom: 0' src='upload/img/saosao.png'>");
+
+        $('.showLogin').click(showLogin);
+
+        $('.ajaxLogin').click(function(){
+            $('.loginAlert').hide();
+            var form = $(this).closest('form');
+            var args = form.serialize();
+            var api = '/index/login?__VIEW__=json&';
+            loading.open();
+            $.post(api+args,function(data){
+                loading.close();
+                if(data.code != 200){
+                    $('.loginAlert').html(data.msg);
+                    $('.loginAlert').show();
+                    console.log(data);
+                }else{
+                    location.href = '';
+                }
+            });
+        });
+    });
+</script><style>
+    .left-list>li{
+
+    }
+    .left-list .active>a{
+        color: #563d7c !important;
+        font-weight: bolder;
+
+    }
+    .left-list .active>a span{
+        border-right: 2px solid #563d7c;
+    }
+    .left-list li>a span{
+        margin-left: 20px;
+    }
+    .weibo-text img{
+        max-width: 14px;
+    }
+    #main-content{
+        position: relative;
+    }
+    .weiboImg>div{
+        display: inline-block;
+        overflow: hidden;
+    }
+    .conlist{
+        margin-top: 10px;
+        border-bottom: 1px solid #e6e6e6;
+        padding: 10px;
+        //border-radius: 5px;
+    }
+    .douban-right{
+        margin-left: 10px;
+    }
+</style>
+<div class="container-fluid" style="height: 100%">
+    <div class="row marginHeightMax" style="height: 662px;">
+        <div class="col-xs-2 scroll" style="height: 100%;position: fixed;">
+            <ul class="list-unstyled left-list nav" style="margin: 10px;">
+                <li><a style="color: #777" href="#weibo">新浪微博<span></span></a></li>
+                <li><a style="color: #777" href="#douban">豆瓣影单<span></span></a></li>
+            </ul>
+
+        </div>
+        <div class="col-xs-10 col-xs-offset-2" id="main-content" style="">
+
+            <h1 class="page-header" id="weibo" style="position: relative;">新浪微博</h1>
+            <div>
+                <div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>3分钟前 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【又见男童坠井！3岁男孩坠入10米深井，幸无大碍】陕西户县甘河镇马坊村3岁男孩彤彤（化名）的父母在外务工，由奶奶照看。19日上午，奶奶带着彤彤在地里干活时，彤彤不慎坠入10米深井，井里的水不深，彤彤大哭，奶奶赶忙喊人来帮忙。村民腰绑麻绳下井，将娃救了上来。(华商报)<a data-url="http://t.cn/Rfi2YiU" href="http://media.weibo.cn/article?id=2309351000424043764120298199&amp;object_id=1022%3A2309351000424043764120298199&amp;url_type=39&amp;object_type=article&amp;pos=1&amp;containerid=&amp;"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article_default.png"></i><span class="surl-text">户县3岁娃坠10米深...</span></a></div>
+        <div><img src="http://ww1.sinaimg.cn/thumbnail/884f7263jw1f9yuvjjchpj20go0a776f.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>23分钟前 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【初三学生按月考成绩重新分班 称“打击太大”】西安某中学初三学生小磊称，该校初三分火箭班、重点班、普通班，从这月起，每月都要按月考成绩排名重新分班。由于一次月考没考好，原在重点班的小磊被分到普通班，“打击太大了”。一老师回应：分班是为调动学生积极性。<br>(华商报)<a data-url="http://t.cn/Rfi2lHN" href="http://media.weibo.cn/article?id=2309351000424043763755393111&amp;object_id=1022%3A2309351000424043763755393111&amp;url_type=39&amp;object_type=article&amp;pos=1&amp;containerid=&amp;"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article_default.png"></i><span class="surl-text">按月考成绩重新分班 ...</span></a></div>
+        <div><img src="http://ww3.sinaimg.cn/thumbnail/884f7263jw1f9yuaozn70j20ck099jsb.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>43分钟前 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【野猪咬伤2老人被击毙 猪肉将分给伤者】19日，一只野猪闯入重庆某小区，咬伤两名70岁左右的老人。居民报警，警方赶来将猪击毙。野猪随后被送往屠宰场检疫，“初步判断没有疫情。” 当地农委准备将野猪肉分发给当地困难户和被咬伤的老人。（重庆晚报）<a data-url="http://t.cn/RfiBEMU" href="http://media.weibo.cn/article?id=2309351000584043896312199508&amp;object_id=1022%3A2309351000584043896312199508&amp;url_type=39&amp;object_type=article&amp;pos=1&amp;containerid=&amp;"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article_default.png"></i><span class="surl-text">野猪窜进江北小区 数...</span></a></div>
+        <div><img src="http://ww4.sinaimg.cn/thumbnail/884f7263jw1f9ytpvsinjj20b407e3z9.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 19:41 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【女子入住酒店 半夜醒来床上惊现十几只臭虫<i class="face face_2 icon_2">[生病]</i>】近日严女士来深圳出差，入住宝安西乡某商务酒店。她半夜在房间内睡得好好的，突然感觉有东西在身上爬，开灯一看，床上有十几只臭虫，自己也被咬了一身包！酒店致歉并称愿承担医疗费，当地卫生监督所已介入调查。(深圳晚报)<a data-url="http://t.cn/RfiiFzo" target="_blank" href="http://weibo.cn/sinaurl?u=http%3A%2F%2Fwww.sznews.com%2Fnews%2Fcontent%2F2016-11%2F20%2Fcontent_14306667.htm%3Flocation%3D35"><i class="iconimg iconimg-xs"><img src="http://u1.sinaimg.cn/upload/2014/10/16/timeline_card_small_web_default.png"></i><span class="surl-text">女子入住深圳一酒店 ...</span></a></div>
+        <div><img src="http://ww3.sinaimg.cn/thumbnail/884f7263jw1f9yt52mwp3j20ck0grt9w.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 19:34 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【韵达快递将补发报酬每人220元】据央视，事件曝光后，陕西省教育厅责成学校停止实习并展开调查，追责处理责任人。经查，实习协议并未安排具体工种，而11月14日、15日快递量激增，240名实习学生被安排至分拣车间超时工作10小时。韵达快递将补发报酬每人220元。</div>
+        <div><img src=""></div>
+        <div>@人民网：【大学生在韵达快递“被实习”  工作10小时报酬10元<i class="face face_1 icon_23">[衰]</i>】11月12日开始，陕西交通职业技术学院240名公路运输管理专业学生被安排去韵达快递实习，不去不给学分不能毕业。一天工作约10小时，只给10元报酬。学校：这是教学计划，学生：有用处！知道我的快递怎么坏的了……(央视)<a data-url="http://t.cn/RfJqZjf" href="http://miaopai.com/show/8EtbJBee2Pk3I2aSymYGug__.htm"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video_default.png"></i><span class="surl-text">人民日报的秒拍视频</span></a></div>
+<div>
+    <img class="img-responsive" width="360" style="max-height: 240px;" src="http://dlqncdn.miaopai.com/stream/8EtbJBee2Pk3I2aSymYGug___m.jpg">
+</div>
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 19:21 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【大学生在韵达快递“被实习”  工作10小时报酬10元<i class="face face_1 icon_23">[衰]</i>】11月12日开始，陕西交通职业技术学院240名公路运输管理专业学生被安排去韵达快递实习，不去不给学分不能毕业。一天工作约10小时，只给10元报酬。学校：这是教学计划，学生：有用处！知道我的快递怎么坏的了……(央视)<a data-url="http://t.cn/RfJqZjf" href="http://miaopai.com/show/8EtbJBee2Pk3I2aSymYGug__.htm"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video_default.png"></i><span class="surl-text">人民日报的秒拍视频</span></a></div>
+        <div><img src=""></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 19:01 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【外教用胶带封孩子嘴巴 称是开玩笑】上海朱女士称，她花1万多元给4岁的儿子在培训机构报了班，没想到孩子上课时竟被外教用双面胶贴住了嘴巴，外教还说“是玩笑”，朱女士称班上多名孩子都有过类似遭遇。培训机构称，该名外教此举确实存在不妥当之处，已将其辞退。(澎湃)<a data-url="http://t.cn/Rf6LeW8" target="_blank" href="http://weibo.cn/sinaurl?u=http%3A%2F%2Fwww.thepaper.cn%2Fwww%2Fv3%2Fjsp%2FnewsDetail_forward_1564182%3Flocation%3D35"><i class="iconimg iconimg-xs"><img src="http://u1.sinaimg.cn/upload/2014/10/16/timeline_card_small_web_default.png"></i><span class="surl-text">上海一培训机构外教用...</span></a></div>
+        <div><img src="http://ww2.sinaimg.cn/thumbnail/884f7263jw1f9yrzg6u8lj20ck0grabb.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 18:41 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【外国人逆行撞残中国老太拒现身 被限出境才应诉】上海李老太骑车出门买菜时，与迎面飞驰而来的大卫驾驶的电动车相撞，经鉴定构成十级伤残。交警认定大卫应担主责，但大卫认为其根据国外驾驶习惯靠左行驶并无过错，不肯露面。直到法院对大卫限制出境，他才现身出庭。(上海观察) <a data-url="http://t.cn/RfMZEno" target="_blank" href="http://weibo.cn/sinaurl?u=http%3A%2F%2Ft.cn%2FRfMZEno"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_web_default.png"></i><span class="surl-text">网页链接</span></a></div>
+        <div><img src="http://ww4.sinaimg.cn/thumbnail/884f7263jw1f9yreoj4yfj209n07h74s.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 18:21 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【男子被错当成小偷 遭暴打病危】文昌小伙小魏在网吧玩游戏时，突然遭人暴打。对方持铁棍猛击小魏头部，致小魏头骨开裂，医院3次下病危通知书。警方调查发现，打人者黄某是一名网管，他错将小魏当成了小偷，事后称“打错人了”。黄某已被拘留。（南国都市报）<a data-url="http://t.cn/Rfxh0ul" href="http://media.weibo.cn/article?id=2309351001064043438097044025&amp;object_id=1022%3A2309351001064043438097044025&amp;url_type=39&amp;object_type=article&amp;pos=1&amp;containerid=&amp;"><i class="iconimg iconimg-xs"><img src="http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article_default.png"></i><span class="surl-text">文昌男子无辜被打 头...</span></a></div>
+        <div><img src="http://ww3.sinaimg.cn/thumbnail/884f7263jw1f9yqtu3zi5j209d0godgt.jpg"></div>
+        
+        
+    </div>
+</div><div class="conlist">
+    <div class="tgh-subfl">
+        <div><img src="http://tva3.sinaimg.cn/crop.1.0.179.179.180/884f7263jw8ev7jo9p7gtj20500500sy.jpg" style="border-radius: 50%;width: 35px"></div>
+        <div class="douban-right">
+               <div>人民网</div>
+               <div>今天 18:01 来自人民网微博</div>
+        </div>
+    </div>
+    <div>
+        <div class="weibo-text">【志愿者高速上拦截运狗车被撞 3人受伤】据<a href="/n/京华时报">@京华时报</a> ：爱狗志愿者称，在廊坊一高速路收费站，发现一辆装满狗狗的大货车，志愿者怀疑驾车者是贩狗团伙，一直跟着该大货。昨天下午，志愿者用小轿车拦截大货车时，两辆车发生交通事故，致轿车内3名志愿者受伤。廊沧高速交警称，案件正在调查中。</div>
+        <div><img src="http://ww4.sinaimg.cn/thumbnail/884f7263jw1f9yq9128m6j20ci0m8aar.jpg"></div>
+        
+        
+    </div>
+</div>            </div>
+        <div>
+            <h1 class="page-header" id="douban">豆瓣影单</h1>
+            <div>
+                <div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2356015154.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>海底总动员2：多莉去哪儿 / Finding Dory</div>
+        <div style="height: 40px;overflow: hidden">2016-06-17(中国大陆/美国) / 艾伦·德杰尼勒斯 / 艾伯特·布鲁克斯 / 艾德·奥尼尔 / 凯特琳·奥尔森 / 海登·罗兰斯 / 泰·布利尔 / 黛安·基顿 / 尤金·列维 / 斯隆·穆雷 / 伊德里斯·艾尔巴 / 多米尼克·威斯特 / 鲍勃·彼德森 / 凯特·麦克金农 / 比尔·哈德尔 / 西格妮·韦弗 / 美国 / www.pixar.com/features_films/Finding-Dory / 安德鲁·斯坦顿 / 安格斯·麦克莱恩 / 97分钟 / 海底总动员2：多莉去哪儿 / 喜剧 / 动画 / 冒险 / 家庭 / 安德鲁·斯坦顿 Andrew Stanton / 维多利亚·斯特劳斯 Victoria Strouse / 鲍勃·彼德森 Bob Peterson / 英语</div>
+        <div>2016-11-14</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img5.doubanio.com/view/movie_poster_cover/ipst/public/p2360072346.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>寒战2</div>
+        <div style="height: 40px;overflow: hidden">2016-07-08(中国大陆/香港) / 郭富城 / 梁家辉 / 杨采妮 / 彭于晏 / 李治廷 / 文咏珊 / 周润发 / 马伊琍 / 杨祐宁 / 张国柱 / 吴樾 / 周笔畅 / 李子雄 / 骆应钧 / 林文龙 / 中国大陆 / 香港 / 梁乐民 / 陆剑青 / 110分钟 / 剧情 / 动作 / 犯罪 / 梁乐民 Lok Man Leung / 陆剑青 Kim-ching Luk / 汉语普通话 / 粤语</div>
+        <div>2016-11-14</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img1.doubanio.com/view/movie_poster_cover/ipst/public/p2380681527.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>王牌逗王牌</div>
+        <div style="height: 40px;overflow: hidden">2016-09-30(中国大陆) / 刘德华 / 黄晓明 / 王祖蓝 / 胡然 / 欧阳娜娜 / 谢依霖 / 沈腾 / 赵英俊 / 戚薇 / 徐冬冬 / 毛俊杰 / 吴樾 / 中国大陆 / 香港 / 王晶 / 102分钟 / 喜剧 / 动作 / 冒险 / 王晶 Jing Wong / 汉语普通话</div>
+        <div>2016-11-10</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2358403173.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>赏金猎人</div>
+        <div style="height: 40px;overflow: hidden">2016-07-01(中国大陆) / 李敏镐 / 钟汉良 / 唐嫣 / 徐正曦 / 吴千语 / 樊少皇 / 金瑜美 / 中国大陆 / 韩国 / 香港 / 申太罗 / 105分钟 / 剧情 / 喜剧 / 动作 / 黄子桓 Edmond Wong / 金圭烷 Kyu-Wan Kim / 申太罗 Terra Shin / 汉语普通话 / 韩语 / 泰语 / 英语</div>
+        <div>2016-11-09</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img5.doubanio.com/view/movie_poster_cover/ipst/public/p2326716876.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>知无涯者 / The Man Who Knew Infinity</div>
+        <div style="height: 40px;overflow: hidden">2015-09-17(多伦多电影节) / 2016-04-08(英国) / 2016-04-15(翠贝卡电影节) / 杰瑞米·艾恩斯 / 戴夫·帕特尔 / 斯蒂芬·弗雷 / 托比·琼斯 / 杰瑞米·诺森 / 凯文·麦克纳利 / 沙扎德·拉蒂夫 / 德维卡·贝斯 / 阿兰·本特利 / 伊莱恩·考尔菲德 / 亚历山大·库珀 / 理查德·坎宁汉姆 / 罗杰·纳拉扬 / 尼古拉斯·阿格纽 / 罗曼·格林 / 英国 / 马特·布朗 / 108分钟 / 知无涯者 / 剧情 / 传记 / 马特·布朗 Matt Brown / 罗伯特·卡尼盖尔 Robert Kanigel / 英语 / 泰米尔语 / 梵语</div>
+        <div>2016-11-06</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2337024492.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>潜伏者 / The Infiltrator</div>
+        <div style="height: 40px;overflow: hidden">2016-07-15(美国) / 布莱恩·科兰斯顿 / 黛安·克鲁格 / 本杰明·布拉特 / 埃琳纳·安娜亚 / 鲁本·奥钱蒂诺 / 马克·霍尔登 / 米切尔·马伦 / 宾利·卡鲁 / 英国 / www.theinfiltrator.com / 布拉德·福尔曼 / 127分钟 / 潜伏者 / 剧情 / 传记 / 犯罪 / 罗伯特·马泽 Robert Mazur / 艾伦·布朗·弗曼 Ellen Brown Furman / 英语</div>
+        <div>2016-11-02</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2373887821.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>喊·山</div>
+        <div style="height: 40px;overflow: hidden">2016-08-26(中国大陆) / 2015-10-10(釜山国际电影节) / 郎月婷 / 王紫逸 / 成泰燊 / 余皑磊 / 郭金 / 徐才根 / 赵晨东 / 李思颖 / 张籽沐 / 中国大陆 / 杨子 / 111分钟(中国大陆) / 117分钟 / 剧情 / 爱情 / 犯罪 / 杨子 Larry Yang / 汉语普通话</div>
+        <div>2016-11-01</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2371503931.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>追捕野蛮人 / Hunt for the Wilderpeople</div>
+        <div style="height: 40px;overflow: hidden">2016-01-22(圣丹斯电影节) / 2016-03-31(新西兰) / 山姆·尼尔 / 科恩·霍洛维 / 瑞斯·达比 / 塔伊加·维迪提 / 朱利安·迪尼森 / 瑞玛·特·维塔 / 奥斯卡·凯特利 / 新西兰 / wilderpeople.film / 塔伊加·维迪提 / 101分钟 / 追捕野蛮人 / 剧情 / 喜剧 / 冒险 / 塔伊加·维迪提 Taika Waititi / 巴瑞·克鲁普 Barry Crump / 英语</div>
+        <div>2016-11-01</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2203693875.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>夜行者 / Nightcrawler</div>
+        <div style="height: 40px;overflow: hidden">2014-09-05(多伦多电影节) / 2014-10-31(美国) / 杰克·吉伦哈尔 / 里兹·阿迈德 / 蕾妮·罗素 / 迈克尔·帕帕约翰 / 马科斯·罗德里格斯 / 比尔·帕克斯顿 / 杰姆斯黄 / 肯特·绍克内克 / 帕特·哈维 / 莎伦泰 / 里克·加西亚 / 利亚·弗雷德金 / 比尔·苏厄德 / 约翰尼·科瓦内 / 美国 / 丹·吉尔罗伊 / 117分钟 / 夜行者 / 犯罪 / 惊悚 / 丹·吉尔罗伊 Dan Gilroy / 英语</div>
+        <div>2016-10-31</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img1.doubanio.com/view/movie_poster_cover/ipst/public/p2178368429.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>突袭2：暴徒 / The Raid 2: Berandal</div>
+        <div style="height: 40px;overflow: hidden">2014-01-21(圣丹斯电影节) / 2014-03-28(美国) / 2014-03(印尼) / 伊科·乌艾斯 / 朱莉·埃斯特尔 / 雅彦·鲁伊安 / 阿里芬·普特拉 / 唐尼·阿兰西亚 / 奥卡·安塔拉 / 北村一辉 / 蒂奥·帕库苏德沃 / 松田龙平 / 远藤宪一 / 玛莎.蒂莫西 / Cecep Arif Rahman / Alex Abbad / 印度尼西亚 / 美国 / 加雷斯·埃文斯 / 150分钟 / 突袭2：暴徒 / 剧情 / 动作 / 犯罪 / 加雷斯·埃文斯 Gareth Evans / 印度尼西亚语 / 日语 / 英语 / 阿拉伯语</div>
+        <div>2016-10-29</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2365805932.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>神奇队长 / Captain Fantastic</div>
+        <div style="height: 40px;overflow: hidden">2016-01-23(圣丹斯电影节) / 2016-07-08(美国) / 维果·莫腾森 / 乔治·麦凯 / 萨曼莎·伊斯莱尔 / 安娜丽丝·巴索 / 尼古拉斯·汉密尔顿 / Shree Crooks / Charlie Shotwell / Trin Miller / 凯瑟琳·哈恩 / 史蒂夫·茨恩 / Elijah Stevenson / Teddy Van Ee / 艾琳·莫里亚蒂 / 米西·派勒 / 弗兰克·兰格拉 / 美国 / www.bleeckerstreetmedia.com/captainfantastic / 马特·罗斯 / 118分钟 / 神奇队长 / 剧情 / 喜剧 / 家庭 / 马特·罗斯 Matt Ross / 英语</div>
+        <div>2016-10-29</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2377676571.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>大话西游3</div>
+        <div style="height: 40px;overflow: hidden">2016-09-14(中国大陆) / 韩庚 / 唐嫣 / 吴京 / 莫文蔚 / 张超 / 张瑶 / 王一博 / 钟欣潼 / 谢楠 / 何炅 / 胡静 / 黄征 / 刘镇伟 / 曹承衍 / 周艺轩 / 元奎 / 中国大陆 / 香港 / 刘镇伟 / 93分钟 / 喜剧 / 爱情 / 奇幻 / 刘镇伟 Jeffrey Lau / 汉语普通话</div>
+        <div>2016-10-27</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img1.doubanio.com/view/movie_poster_cover/ipst/public/p2371145119.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>香肠派对 / Sausage Party</div>
+        <div style="height: 40px;overflow: hidden">2016-08-12(美国) / 塞斯·罗根 / 克里斯汀·韦格 / 詹姆斯·弗兰科 / 乔纳·希尔 / 爱德华·诺顿 / 萨尔玛·海耶克 / 保罗·路德 / 迈克尔·塞拉 / 大卫·克鲁霍尔特兹 / 比尔·哈德尔 / 丹尼·麦克布耐德 / 尼克·克罗尔 / 克雷格·罗宾森 / 康拉德·弗农 / 舒格·林·彼尔德 / 美国 / www.sausagepartymovie.com/site/ / 康拉德·弗农 / 格雷格·蒂曼 / 89分钟 / 香肠派对 / 喜剧 / 动画 / 冒险 / 塞斯·罗根 Seth Rogen / 埃文·戈德堡 Evan Goldberg / 凯尔·亨特 Kyle Hunter / 艾瑞尔·沙福 Ariel Shaffir / 英语</div>
+        <div>2016-10-27</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2328680655.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>瑞士军刀男 / Swiss Army Man</div>
+        <div style="height: 40px;overflow: hidden">2016-01-22(圣丹斯电影节) / 2016-07-01(美国) / 保罗·达诺 / 丹尼尔·雷德克里夫 / 玛丽·伊丽莎白·温斯特德 / 蒂莫西·尤里齐 / 玛丽卡·卡斯蒂尔 / 理查德·格罗斯 / 美国 / swissarmyman.com / 丹·关 / 丹尼尔·施纳特 / 97分钟 / 瑞士军刀男 / 剧情 / 喜剧 / 冒险 / 丹·关 Dan Kwan / 丹尼尔·施纳特 Daniel Scheinert / 英语</div>
+        <div>2016-10-01</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div><div class="tgh-subfl conlist">
+    <div>
+        <img src="https://img3.doubanio.com/view/movie_poster_cover/ipst/public/p2320416753.jpg">
+    </div>
+    <div style="width: 80%" class="douban-right">
+        <div>乐高超级英雄：正义联盟之宇宙冲击 / Lego DC Comics Super Heroes: Justice League - Cosmic Clash</div>
+        <div style="height: 40px;overflow: hidden">2016-03-01 / 特罗伊·贝克 / 诺兰·诺斯 / Grey Griffin / 美国 / Rick Morales / 78分钟 / 乐高超级英雄：正义联盟之宇宙冲击 / 动作 / 动画 / James Krieg / 英语</div>
+        <div>2016-09-04</div>
+        <div style="color: orange">
+            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<script>
+    $(function(){
+        navActive('nav-home');
+        $('body').scrollspy('refresh')
+        $('body').scrollspy({target : '.scroll'})
+    });
+
+</script><img width="150" class="hidden-xs" style="max-width: 40%;position: absolute;right: 0;bottom: 0" src="upload/img/saosao.png"></body></html>

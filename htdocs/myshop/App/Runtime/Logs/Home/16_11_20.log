@@ -1,0 +1,62 @@
+[ 2016-11-20T16:10:00+08:00 ] 121.42.0.59 /myshop/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001738s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010697s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0017s ]
+NOTIC: [8] Undefined index: user_id /data/home/bxu2359170698/htdocs/myshop/App/Home/Model/CartModel.class.php 第 47 行.
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0012s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /data/home/bxu2359170698/htdocs/myshop/App/Admin/Model/GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0012s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0012s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+NOTIC: [8] Undefined index: user_id /data/home/bxu2359170698/htdocs/myshop/App/Runtime/Cache/Home/00e52909bed743ea261af4b6823297ff.php 第 24 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.065996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066072s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001768s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001807s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002895s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002941s ]
+
+[ 2016-11-20T20:36:28+08:00 ] 116.226.197.134 /myshop/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000692s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+SQL: SHOW COLUMNS FROM `it_cart` [ RunTime:0.0016s ]
+NOTIC: [8] Undefined index: user_id /data/home/bxu2359170698/htdocs/myshop/App/Home/Model/CartModel.class.php 第 47 行.
+SQL: SHOW COLUMNS FROM `it_category` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `it_category` WHERE ( parent_id=0 )  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `it_category`  [ RunTime:0.0012s ]
+NOTIC: [2048] Declaration of Admin\Model\GoodsModel::_before_delete() should be compatible with Think\Model::_before_delete($options) /data/home/bxu2359170698/htdocs/myshop/App/Admin/Model/GoodsModel.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `it_goods` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_best=1 ) LIMIT 3   [ RunTime:0.0013s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_new=1 ) LIMIT 3   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `it_goods` WHERE ( is_hot=1 ) LIMIT 3   [ RunTime:0.0013s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000203s ]
+NOTIC: [8] Undefined index: user_id /data/home/bxu2359170698/htdocs/myshop/App/Runtime/Cache/Home/00e52909bed743ea261af4b6823297ff.php 第 24 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016403s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016467s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000660s ]
+

@@ -1,0 +1,539 @@
+<html lang="zh-CN" class="fp-enabled" style="overflow: hidden; height: 100%;"><head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="逸仙人,最低调程序员,8tgh">
+    <meta name="description" content="逸仙人的个人主页">
+
+    <title>逸仙人,最低调程序员</title>
+
+    <link rel="stylesheet" href="http://www.jq22.com/demo/fullpage-141201214949/css/jquery.fullPage.css">
+
+    <style>
+
+        body{color: white}
+
+        .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+
+        canvas{cursor: url('upload/welcome/paint.ico'),move;}
+
+    </style>
+
+
+
+    <script src="//hm.baidu.com/hm.js?64bfc8e0302576ecee048cc54fa67309"></script><script src="http://www.jq22.com/demo/fullpage-141201214949/js/jquery-1.8.3.min.js"></script>
+
+    <script src="http://www.jq22.com/demo/fullpage-141201214949/js/jquery-ui-1.10.3.min.js"></script>
+
+    <script src="/public/js/jquery.fullPage.js"></script>
+
+    <script src="/public/js/draw.js"></script>
+
+
+
+
+
+    <link rel="stylesheet" href="/public/css/jquery.fullPage.css">
+
+    <!-- <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/public/css/font-awesome-ie7.min.css">
+
+    <!-- <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+
+
+    <script>
+
+        $(document).ready(function() {
+
+            $('#dowebok').fullpage({
+
+                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90' ],
+
+                anchors:['page1','page2','page3','page4'],
+
+                onLeave: function(index,nextIndex,direction ){
+
+                   // console.log('onLeave >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+                  //  console.log(index,'index>>>');
+
+                 //   console.log(direction,'direction>>>');
+
+                  //  console.log(nextIndex,'nextIndex>>>');
+
+                    //leaving 1st section
+
+                    if(index == 1){
+
+                       // $('.header').addClass('top');
+
+                    }
+
+                    //back to the 1st section
+
+                    if(nextIndex == 2){
+
+                      //  $('.header').removeClass('top');
+
+
+
+                    }
+
+                },
+
+                afterLoad:function(anchorLink,index){
+
+                   // console.log('afterLoad >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+                  //  console.log(index,'index>>>');
+
+                  //  console.log(anchorLink,'anchorLink>>>');
+
+                    if(index != 1){
+
+                        $('.header').css('height','80');
+
+                        $('.menu').css('margin-top','10px');
+
+                    }else{
+
+                        $('.header').css('height','110');
+
+                        $('.menu').css('margin-top','20px');
+
+                    }
+
+
+
+                    if(index == 2){
+
+
+
+                    }
+
+                },
+
+                afterResize: function(){
+
+                    windowsHeight = $(window).height();
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+
+    <!-- <script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script type="text/javascript">
+
+        hQGHuMEAyLn('.adsbygoogle,.fdad,.inner > .add');</script></head> -->
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?64bfc8e0302576ecee048cc54fa67309";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="https://s95.cnzz.com/z_stat.php?id=1259577976&amp;web_id=1259577976" language="JavaScript"></script><script src="https://c.cnzz.com/core.php?web_id=1259577976&amp;t=z" charset="utf-8" type="text/javascript"></script></head><body class="theme-1 fp-viewing-page1" style="overflow: hidden; height: 100%;"><a href="http://www.cnzz.com/stat/website.php?web_id=1259577976" target="_blank" title="站长统计">站长统计</a>
+
+
+
+
+<style>
+
+    .trans{
+
+        -webkit-transition: all 0.5s ease;
+
+        -moz-transition: all 0.5s ease;
+
+        -o-transition: all 0.5s ease;
+
+        transition: all 0.5s ease;
+
+    }
+
+    a{text-decoration:none;color: inherit}
+
+    .content{height: 100%;width:100%;z-index: 1000;padding-top: 110px;}
+
+    .portrait{border: 3px solid  #2C3E50;background: url("public/img/head.jpg");background-color: #2C3E50;width: 260px;height: 260px;margin:90px auto 36px auto;left: 0;right: 0;border-radius: 130px;}
+
+    .moods{width: 260px;height: 5px;background-color: white;margin: 35px auto 20px auto;left: 0;right: 0}
+
+    .menu{width: 1200px;margin: auto;height: 60px;line-height: 60px;font-size: 30px;margin-top: 20px}
+
+    .page2{//background: url("public/img/20160411.jpeg")}
+
+    .fl{float: left}
+
+    .fr{float: right}
+
+    .border{border: 1px solid #ffff00}
+
+    .header{
+
+        position:absolute;
+
+        top:0;
+
+        left:0;
+
+        background:#000;
+
+        width:100%;
+
+        color: #fff;
+
+        height: 100px;
+
+        z-index:9999;
+
+        background-color: #2C3E50;height: 110px;
+
+    }
+
+    .draw{position: absolute;display: block}
+
+    .linkarr{position: absolute;border: 0px solid #ffff00;width: 100%;height: 100%;top: 80px;}
+
+    .linkarr-list{width: 150px;height: 200px;border: 0px solid red;float: left;margin: 30px;}
+
+    .linkarr-list-img{width: 150px;height: 150px;border-radius: 30px;}
+
+    .linkarr-list-title{font-size: 18px;height: 50px;line-height: 50px;}
+
+</style>
+
+<!-- <style>
+
+    .trans{
+
+        -webkit-transition: all 0.5s ease;
+
+        -moz-transition: all 0.5s ease;
+
+        -o-transition: all 0.5s ease;
+
+        transition: all 0.5s ease;
+
+    }
+
+    a{text-decoration:none;color: inherit}
+
+    .content{height: 100%;width:100%;z-index: 1000;padding-top: 110px;}
+
+    .portrait{border: 3px solid  #2C3E50;background: url("public/img/head.jpg");background-color: #2C3E50;width: 260px;height: 260px;margin:10px 500px 36px 500px;left: 0;right: 0;border-radius: 130px;}
+
+    .moods{width: 260px;height: 5px;background-color: white;margin: 35px auto 20px auto;left: 0;right: 0}
+
+    .menu{width: 1200px;margin: auto;height: 60px;line-height: 60px;font-size: 30px;margin-top: 20px}
+
+    .page2{//background: url("public/img/20160411.jpeg")}
+
+    .fl{float: left}
+
+    .fr{float: right}
+
+    .border{border: 1px solid #ffff00}
+
+    .header{
+
+        position:absolute;
+
+        top:0;
+
+        left:0;
+
+        background:#000;
+
+        width:100%;
+
+        color: #fff;
+
+        height: 100px;
+
+        z-index:9999;
+
+        background-color: #2C3E50;height: 110px;
+
+    }
+
+    .draw{position: absolute;display: block}
+
+    .linkarr{position: absolute;border: 0px solid #ffff00;width: 100%;height: 100%;top: 80px;}
+
+    .linkarr-list{width: 150px;height: 200px;border: 0px solid red;float: left;margin: 30px;}
+
+    .linkarr-list-img{width: 150px;height: 150px;border-radius: 30px;}
+
+    .linkarr-list-title{font-size: 18px;height: 50px;line-height: 50px;}
+	
+	.linkarr-list-01{width: 150px;height: 200px;border: 0px solid red;float: left;margin: 30px 550px auto;}
+
+    .linkarr-list-img-01{width: 150px;height: 150px;border-radius: 30px;}
+
+    .linkarr-list-title-01{font-size: 18px;height: 50px;line-height: 50px;}
+	
+</style>
+ -->
+
+
+<div class="header trans" style="height: 110px;">
+
+    <div class=" menu trans" style="margin-top: 20px;">
+
+        <div class="fl welcome"><span>欢迎</span></div>
+        <a target="_blank" href="http://manhua.8tgh.com"><div class="fl welcome" style="margin-left: 50px;font-size: 20px;"><span>漫画</span></div></a>
+
+    </div>
+
+</div>
+
+
+
+<div id="dowebok" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, -46px, 0px); transition: all 700ms ease;">
+
+    <div class="section fp-section fp-table active fp-completely" data-anchor="page1" style="height: 662px; background-color: rgb(24, 188, 156);"><div class="fp-tableCell" style="height: 662px;">
+
+        <div class="content">
+
+            <canvas class="draw trans" width="1349" height="662">
+
+
+
+            </canvas>
+
+            <div class="portrait">
+
+
+
+            </div>
+
+            <div>
+
+                <span style="font-size: 70px;font-family: 宋体, 新宋体, verdana, arial, helvetica, sans-serif;font-weight: bolder">逸仙人</span>
+
+            </div>
+
+            <div>
+
+                <div class="moods"></div>
+
+            </div>
+
+            <div>
+
+                <span style="font-size: 35px;font-weight: 100">吹牛的人里面写代码最好的</span>
+
+            </div>
+
+        </div>
+
+    </div></div>
+
+    <div class="section page2 fp-section fp-table" data-anchor="page2" style="height: 662px; background-color: rgb(33, 150, 243);"><div class="fp-tableCell" style="height: 662px;">
+
+        <div class="linkarr">
+
+            <div class="slide">
+             <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140056497626.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">刀塔联盟</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/mario/mario/mario1.0.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140050311725.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">超级马里奥</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/plane/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140046461206.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">亮瞎飞机</div>
+
+            </div>
+             </a>
+            </div>
+                  
+                  <div class="slide">
+                   
+
+                    <a href="wp/homework/swordMan/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140043091376.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">剑客2之卷土重来</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/tank/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140038374382.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">坦克星球</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/flappybox/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140035075440.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">山寨 flappy bird</div>
+
+            </div>
+                  </div> 
+
+                  
+               <div class="slide">
+                </a>
+
+                    <a href="wp/homework/ball/ball.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140032084852.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">别碰方块</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140029348072.png');background-size: cover"></div>
+
+                <div class="linkarr-list-title">多人贪吃蛇</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140026023635.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">欢乐聊天室</div>
+
+            </div>
+  </a>
+               </div>
+                   
+                   <div class="slide">
+                  
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140020488484.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">订饭记录</div>
+
+            </div>
+
+                    </a>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+                   </div>
+                   
+        </div>
+
+    </div></div>
+
+    <div class="section fp-section fp-table" data-anchor="page3" style="height: 662px; background-color: rgb(51, 102, 153);"><div class="fp-tableCell" style="height: 662px;">
+
+ <a href="http://bxu2359170698.my3w.com" target="_blank">
+<div class="linkarr-list-01">
+
+                <div class="linkarr-list-img-01" style="background: url('upload/img/bbs2.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title-01">逸仙人之家</div>
+
+            </div>
+
+                    </a>
+    </div></div>
+
+    <div class="section fp-section fp-table" data-anchor="page4" style="height: 662px; background-color: rgb(153, 102, 153);"><div class="fp-tableCell" style="height: 662px;">
+
+
+
+    </div></div>
+
+</div>
+
+
+
+
+
+
+
+<script>console.log('_runtime:0.0052530765533447'+'s');</script><div id="fp-nav" class="right" style="margin-top: -43.5px;"><ul><li><a href="#page1" class="active"><span></span></a></li><li><a href="#page2" class=""><span></span></a></li><li><a href="#page3" class=""><span></span></a></li><li><a href="#page4" class=""><span></span></a></li></ul></div></body></html>

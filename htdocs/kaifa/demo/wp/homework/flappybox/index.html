@@ -1,0 +1,606 @@
+<html><head>
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+    <script src="js/evlisten.js"></script>
+
+    <style>
+
+        div{
+
+            border: 0px solid #f1b49c;
+
+            width: 940px;
+
+            height: 620px;
+
+        }
+
+        *{
+            font-family: '微软雅黑';
+
+            color: gray;
+
+            margin: auto;
+
+            text-align: center;
+
+			
+
+        }
+
+        #c{
+
+            margin-top: 20px;
+
+            border: 0px solid dodgerblue;
+
+
+
+        }
+
+        .dis{
+
+            display: none;
+
+        }
+
+    </style>
+
+    <title></title>
+
+</head>
+
+
+
+<body>
+
+
+
+<script>
+
+//-------------------------------变量初始化--------------------------------------
+
+    $(window).load(main);
+
+    function init(){
+
+        g_w=document.getElementById('c').width=600;
+
+        g_h=document.getElementById('c').height=400;
+
+        g_fps1=60;
+
+        g_fps2=10;
+
+        g_fps1=Math.floor(1000/g_fps1);
+
+        g_fps2=Math.floor(1000/g_fps2);
+
+        g_flow=1;
+
+        g_time=0;
+
+        g_second=0;
+
+        g_start=false;
+
+        g_gif=1;
+
+        img_bird=new Image();
+
+        img_bird.src='img/birds.png';
+
+        img_pip1=new Image();
+
+        img_pip1.src='img/background (8).png';
+
+        img_pip2=new Image();
+
+        img_pip2.src='img/background (7).png';
+
+
+
+        can=document.getElementById('c').getContext('2d');
+
+        arrBarr=new Array(new Barr(400),new Barr(600),new Barr(800),new Barr(1000));
+
+        box1=new Box();
+
+        method1=new Method();
+
+        evlisten();
+
+       // console.log('一张网页，要经历怎样的过程，才能抵达用户面前？\n一位新人，要经历怎样的成长，才能站在技术之巅？\n'+
+             
+       //         '探寻这里的秘密；\n体验这里的挑战；\n成为这里的主人；\n加入world哥团队，打造完美游戏，你，可以影响世界。\n'+
+
+      //          '特别鸣谢：资深游戏测试 world 哥');
+
+
+
+    }
+
+//-------------------------------------------------------------------------------
+
+    function main(){
+
+        init();
+
+
+
+        set1= setInterval(method1.scense,g_fps1);
+
+        set2= setInterval(method1.scenseCon,g_fps1);
+
+
+
+
+
+        set3= setInterval(method1.scenseGif,g_fps2);
+
+
+
+    }
+
+    function Method(){//方法
+
+        var uda=false;
+
+        var i=0;
+
+
+
+        this.scense=function(){
+
+            if(box1.al)g_second++;
+
+
+            //$('#test').text(Math.floor(g_second/60));
+
+            if(g_flow==1){
+
+                can.clearRect(0,0,g_w,g_h);
+
+                for(var k=0;k<4;k++){
+
+                    arrBarr[k].draw();
+
+                }
+
+                box1.draw();
+
+                box1.drawScore();
+
+
+
+            }
+
+
+
+        }
+
+        this.scenseCon=function(){
+
+            if(g_gif==2){
+
+                clearInterval(set1);
+
+            }
+
+            if(ud&&!g_start){
+
+
+
+                $.post('scoreUp.php','type=tgh',function(data,status){
+
+                    console.log(data);
+
+                });
+
+
+
+                set1= setInterval(method1.scense,g_fps1);
+
+                g_start=true;
+
+                clearInterval(set2);
+
+            }
+
+
+
+        }
+
+        this.scenseGif=function(){
+
+            g_gif++;
+
+            if(g_gif>3){
+
+                g_gif=1;
+
+            }
+
+
+
+
+
+        }
+
+        this.perkey=function(xd){
+
+            if(xd){
+
+                i++;
+
+            }
+
+            if(i==3){
+
+                uda=true;
+
+            }else{
+
+                uda=false;
+
+            }
+
+            if(!xd){
+
+                i=0;
+
+            }
+
+            return uda;
+
+
+
+        }
+
+    }
+
+    function Barr(x){//障碍物
+
+        this.x=x;
+
+        this.y=0;
+
+        this.w=50;
+
+        this.h=150;
+
+        this.c='black';
+
+        this.g=90;
+
+        var s=150;
+
+        var c;
+
+        c=Math.ceil(5*Math.random());
+
+        switch (c){
+
+            case 1:this.c='#0000FF';break;
+
+            case 2:this.c='#FF0000';break;
+
+            case 3:this.c='#FFCC66';break;
+
+            case 4:this.c='#993300';break;
+
+            case 5:this.c='#00CC00';break;
+
+            default :this.c='black';break;
+
+        }
+
+
+
+        this.s=g_fps1*s/1000;
+
+
+
+        this.draw=function(){
+
+
+
+            this.move();
+
+
+
+            can.strokeStyle=this.c;
+
+            //can.strokeRect(this.x,this.y,this.w,this.h);
+
+            can.drawImage(img_pip1,0,420-this.h,52,this.h,this.x,this.y,this.w,this.h);
+
+            //can.strokeRect(this.x,this.y+this.h+this.g,this.w,g_h-this.g-this.h);
+
+            can.drawImage(img_pip2,0,0,52,g_h-this.g-this.h,this.x,this.y+this.h+this.g,this.w,g_h-this.g-this.h);
+
+        }
+
+
+
+        this.move=function(){
+
+            this.x+=(-this.s);
+
+            if(this.x<-this.w){
+
+                this.x=g_w+150;
+
+                this.h=50+200*Math.random();
+
+                c=Math.ceil(5*Math.random());
+
+                switch (c){
+
+                    case 1:this.c='#0000FF';break;
+
+                    case 2:this.c='#FF0000';break;
+
+                    case 3:this.c='#FFCC66';break;
+
+                    case 4:this.c='#993300';break;
+
+                    case 5:this.c='#00CC00';break;
+
+                    default :this.c='black';break;
+
+                }
+
+            }
+
+        }
+
+
+
+    }
+
+    function Box(){//玩家
+
+        this.x=110;
+
+        this.y=180;
+
+        this.w=20;
+
+        this.h=20;
+
+        this.sX=0;
+
+        this.sY=0;
+
+        this.ju=-5;
+
+        this.gr=0.2;
+
+        this.al=true;
+
+        this.ea=g_h;
+
+        this.gs=Math.floor(arrBarr[0].s);
+
+        this.gd=0;
+
+        this.imx=0;
+
+        this.imy=0;
+
+        var sc=0;
+
+        var uda=false;
+
+        var udb=false;
+
+        var crashK=0;
+
+
+
+        this.move=function(){
+
+            this.y+=(this.sY);
+
+            this.x+=(this.sX);
+
+            if(this.y>(this.ea-this.h)){
+
+                this.sY=0;
+
+                this.y=this.ea-this.h;
+
+            }
+
+            if(!this.al){
+
+                this.sX=(-arrBarr[0].s);
+
+            }
+
+
+
+
+
+
+
+        }
+
+        this.draw=function(){
+
+            this.crash();
+
+            this.con();
+
+            this.gra();
+
+            this.move();
+
+            //can.strokeRect(this.x,this.y,this.w,this.h);
+
+            switch (g_gif){
+
+                case 1:this.imx=0;break;
+
+                case 2:this.imx=52;break;
+
+                case 3:this.imx=104;break;
+
+            }
+
+            can.drawImage(img_bird,this.imx,this.imy,52,45,this.x-8,this.y-10,this.w+20,this.h+20);
+
+        }
+
+        this.drawScore=function(){
+
+            if(this.al){
+
+                for(var k=0;k<4;k++){
+
+                    if(arrBarr[k].x>95&&arrBarr[k].x<95+arrBarr[k].s){
+
+                        sc++;
+                        document.getElementById('poi').play();
+
+                        break;
+
+                    }
+
+                }
+
+            }
+
+
+
+            can.font="40px Dotum";
+
+            can.fillStyle='#0091C4';
+
+            can.fillText(sc,275,59);
+
+        }
+
+
+
+        this.gra=function(){
+
+            this.sY+=this.gr;
+
+        }
+
+        this.con=function(){
+
+            this.ud=method1.perkey(ud);
+
+            if(this.ud&&this.al){
+
+                this.sY=this.ju;
+                document.getElementById('fly').currentTime=0;
+                document.getElementById('fly').play();
+
+            }
+
+            if(!this.al&&dd){
+
+                init();
+
+                set2= setInterval(method1.scenseCon,g_fps1);
+
+            }
+
+        }
+
+        this.crash=function(){
+
+            var x=this.x+this.w;
+
+            var y=this.y;
+
+            var yy=this.y+this.h;
+
+            for(var k=0;k<4;k++){
+
+                var x1=arrBarr[k].x;
+
+                var x2=arrBarr[k].x+arrBarr[k].w;
+
+                var y1=arrBarr[k].h;
+
+                var yy1=arrBarr[k].h+arrBarr[k].g;
+
+                if(y<y1&&(x>x1&&x<x2)){
+
+                    this.al=false;
+
+
+
+                    //break;
+
+                }
+
+                if(yy>yy1&&(x>x1&&x<x2)){
+
+                    this.al=false;
+
+
+
+                    //break;
+
+                }
+
+                if(!this.al){
+
+                    crashK++;
+
+                    if(crashK==1){
+                        document.getElementById('hit').play();
+                        setTimeout(function(){document.getElementById('die').play()},300);
+                        $.post('scoreUp.php','type=hgt&score='+sc,function(data,status){
+
+                            console.log(data);
+
+                        });
+
+                    }
+
+                    if(crashK>3){
+
+                        crashK=3;
+
+                    }
+
+                }
+
+            }
+
+
+
+        }
+
+    }
+
+</script>
+
+W 跳 S 复活<a id="test"></a>
+
+<img class="dis" src="img/background (8).png">
+
+<img class="dis" src="img/background (7).png">
+
+<audio id="fly" src="sound/Swooshing1.wav"></audio>
+<audio id="hit" src="sound/Hit1.wav"></audio>
+<audio id="die" src="sound/Die1.wav"></audio>
+<audio id="poi" src="sound/Point1.wav"></audio>
+
+<div>
+
+    <canvas id="c" width="600" height="400"></canvas>
+
+</div>
+
+
+
+</body></html>

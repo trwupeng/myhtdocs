@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="baidu-site-verification" content="wtKMgFlVtJ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="逸仙人,最低调程序员,trwupeng">
+    <meta name="description" content="逸仙人的个人主页">
+
+    <title>逸仙人,最低调程序员</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+.section1 { background: url(images/1.jpg) 50%;}
+.section2 { background: url(images/2.jpg) 50%;}
+.section3 { background: url(images/3.jpg) 50%;}
+.section4 { background: url(images/4.jpg) 50%;} 
+  body{color: white}
+  canvas{cursor: url('welcome/paint.ico'),move;}
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="js/draw.js"></script>
+<script>
+/*$(function(){
+	$('#dowebok').fullpage({
+		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+		'navigation': true,
+	});
+});*/
+
+  $(document).ready(function() {
+
+            $('#dowebok').fullpage({
+
+                sectionsColor: ['#18BC9C', '#2196F3', '#336699', '#996699'],
+
+                anchors:['page1','page2','page3','page4'],
+				
+                'navigation': true,
+				
+                onLeave: function(index,nextIndex,direction ){
+
+                   // console.log('onLeave >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+                   // console.log(index,'index>>>');
+
+                  //  console.log(direction,'direction>>>');
+
+                  //  console.log(nextIndex,'nextIndex>>>');
+
+                    //leaving 1st section
+
+                    if(index == 1){
+
+                       // $('.header').addClass('top');
+
+                    }
+
+                    //back to the 1st section
+
+                    if(nextIndex == 2){
+
+                      //  $('.header').removeClass('top');
+
+
+
+                    }
+
+                },
+
+                afterLoad:function(anchorLink,index){
+
+                   // console.log('afterLoad >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+
+                  //  console.log(index,'index>>>');
+
+                  //  console.log(anchorLink,'anchorLink>>>');
+
+                    if(index != 1){
+
+                        $('.header').css('height','80');
+
+                        $('.menu').css('margin-top','10px');
+
+                    }else{
+
+                        $('.header').css('height','110');
+
+                        $('.menu').css('margin-top','20px');
+
+                    }
+
+
+
+                    if(index == 2){
+
+
+
+                    }
+
+                },
+
+                afterResize: function(){
+
+                    windowsHeight = $(window).height();
+
+                }
+
+            });
+
+        });
+
+</script>
+
+</head>
+<style>
+
+    .trans{
+
+        -webkit-transition: all 0.5s ease;
+
+        -moz-transition: all 0.5s ease;
+
+        -o-transition: all 0.5s ease;
+
+        transition: all 0.5s ease;
+
+    }
+
+  a{text-decoration:none;color: inherit}
+  
+   .header{
+
+        position:absolute;
+
+        top:0;
+
+        left:0;
+
+        background:#000;
+
+        width:100%;
+
+        color: #fff;
+
+        height: 100px;
+
+        z-index:9999;
+
+        background-color: #2C3E50;height: 110px;
+
+    }
+	
+	  .content{height: 100%;width:100%;z-index: 1000;padding-top: 110px;}
+      
+	  .portrait{border: 3px solid  #2C3E50;background: url("img/head.jpg");background-color: #2C3E50;width: 260px;height: 260px;margin:190px auto 36px auto;left: 0;right: 0;border-radius: 130px;}
+
+
+	  .menu{width: 1200px;margin: auto;height: 60px;line-height: 60px;font-size: 30px;margin-top: 20px}
+
+      .moods{width: 260px;height: 5px;background-color: white;margin: 35px auto 20px auto;left: 0;right: 0}
+
+	  .fl{float: left} 
+
+      .fr{float: right}
+
+      .border{border: 1px solid #ffff00}
+       
+	  .draw{position: absolute;display: block}
+	   
+	 .linkarr{position: absolute;border: 0px solid #ffff00;width: 100%;height: 100%;top: 80px;}
+
+    .linkarr-list{width: 150px;height: 200px;border: 0px solid red;float: left;margin: 30px;margin-left:180px;}
+
+    .linkarr-list-img{width: 150px;height: 150px;border-radius: 30px;}
+
+    .linkarr-list-title{font-size: 18px;height: 50px;line-height: 50px;}
+	#photo{width:50%;height:50%;}
+/*	  #page1{ background: url(images/1.jpg) 50%;}*/
+	  
+ </style>
+<body>
+
+<div class="header trans" style="height: 110px;">
+
+    <div class=" menu trans" style="margin-top: 20px;">
+
+        <div class="fl welcome"><span>欢迎</span></div>
+         <a target="_blank" href="http://bbs.trwupeng.com"><div class="fl welcome" style="margin-left: 50px;font-size: 20px;"><span>逸仙人论坛</span></div></a>
+              <a target="_blank" href="http://www.trwupeng.com/myshop/"><div class="fl welcome" style="margin-left: 50px;font-size: 20px;"><span>逸仙人商城</span></div></a>
+               <a target="_blank" href="http://manhua.8tgh.com"><div class="fl welcome" style="margin-left: 50px;font-size: 20px;"><span>漫画</span></div></a>
+                <a target="_blank" href="http://jiandan.net"><div class="fl welcome" style="margin-left: 50px;font-size: 20px;"><span>无聊煎蛋图</span></div></a>
+    </div>
+
+</div>
+
+<div id="dowebok">
+		<!--<h3>第一屏</h3>
+		<p>fullPage.js — 项目导航演示</p>-->
+         <div class="section section1 fp-section fp-table active fp-completely" data-anchor="page1" style="height: 662px; background-color: rgb(24, 188, 156);" id="page1">
+          <div class="content">
+            <canvas class="draw trans" width="1349" height="662">
+	 
+	 
+	 
+	             </canvas>
+                
+				<div class="portrait">
+	 
+	 
+	 
+	             </div>
+ <div>
+	 
+	                 <span style="font-size: 70px;font-family: 宋体, 新宋体, verdana, arial, helvetica, sans-serif;font-weight: bolder">逸仙人</span>
+	 
+	             </div>
+	 
+	             <div>
+	 
+	                 <div class="moods"></div>
+	 
+	             </div>
+	 
+	             <div>
+	 
+	                 <span style="font-size: 35px;font-weight: 100">集才华与美貌于一身的男子</span>
+	 
+	             </div>
+          </div>
+
+	</div>
+	<!--<div class="section">-->
+		<!--<h3>第二屏</h3>
+		<p>请查看右边的圆圈</p>-->
+        <div class="section section2 fp-section fp-table" data-anchor="page2" style="height: 662px; background-color: rgb(33, 150, 243);"><div class="fp-tableCell" style="height: 662px;" id="photo">
+
+        <div class="linkarr">
+
+            <div class="slide">
+             <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('img/201606140056497626.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">刀塔联盟</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/mario/mario/mario1.0.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140050311725.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">超级马里奥</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/plane/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140046461206.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">亮瞎飞机</div>
+
+            </div>
+             </a>
+                 <a href="wp/homework/swordMan/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140043091376.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">剑客2之卷土重来</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/tank/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140038374382.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">坦克星球</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/flappybox/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140035075440.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">山寨 flappy bird</div>
+
+            </div>
+            
+              </a>
+
+                    <a href="wp/homework/ball/ball.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140032084852.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">别碰方块</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140029348072.png');background-size: cover"></div>
+
+                <div class="linkarr-list-title">多人贪吃蛇</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140026023635.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">欢乐聊天室</div>
+
+            </div>
+  </a>
+  
+  
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140020488484.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">订饭记录</div>
+
+            </div>
+
+                    </a>
+
+            </div>
+                  
+               <!--   <div class="slide">
+                   
+
+                    <a href="wp/homework/swordMan/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140043091376.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">剑客2之卷土重来</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/tank/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140038374382.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">坦克星球</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="wp/homework/flappybox/index.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140035075440.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">山寨 flappy bird</div>
+
+            </div>
+                  </div> -->
+
+                  
+              <!-- <div class="slide">
+                </a>
+
+                    <a href="wp/homework/ball/ball.html" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140032084852.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">别碰方块</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140029348072.png');background-size: cover"></div>
+
+                <div class="linkarr-list-title">多人贪吃蛇</div>
+
+            </div>
+
+                    </a>
+
+                    <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140026023635.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">欢乐聊天室</div>
+
+            </div>
+  </a>
+               </div>-->
+                   
+                   <div class="slide">
+                  
+
+                 <!--   <a href="#" target="_blank">
+
+            <div class="linkarr-list">
+
+                <div class="linkarr-list-img" style="background: url('upload/img/201606140020488484.jpg');background-size: cover"></div>
+
+                <div class="linkarr-list-title">订饭记录</div>
+
+            </div>
+
+                    </a>-->
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+            <div class="linkarr-list">
+
+
+
+            </div>
+
+                   </div>
+                   
+        </div>
+
+    </div></div>
+    
+<!--	</div>-->
+	<div class="section section3" data-anchor="page3">
+		<!--<h3>第三屏</h3>
+		<p>圆圈还可以设置位置，颜色，加上 tip，点击可以控制</p>-->
+	</div>
+	<div class="section section4" data-anchor="page4">
+		<!--<h3>第四屏</h3>
+		<p>这是最后一屏</p>-->
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
+<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
+
+</body>
+</html>

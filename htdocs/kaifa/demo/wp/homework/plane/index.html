@@ -1,0 +1,387 @@
+<html><head></head><body>
+
+<canvas id="canvas" width="624" height="700">抱歉，你的浏览器out了！</canvas>
+
+
+
+
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+    <title>Plane1.0</title>
+
+    <style>
+
+        canvas{
+
+            display: block;
+
+            margin: 20px auto;
+
+            border: 2px solid #333;
+
+        }
+
+    </style>
+
+
+
+    <script>
+
+
+
+        document.getElementById('canvas').height=700;
+
+        var k,bx,by,bgspeed=5;bgspeedd=3;
+
+        var W=500;
+
+        var H=700;
+
+
+
+        var ud,dd,ld,rd,sd,fire=true;
+
+        var ctx;
+
+        var starY=-700,starX=-50;sunY=-700,sunX=120;
+
+        var img_star=new Image();
+
+        img_star.src="plane_bg1.png";
+
+        var img_myPlane1=new Image();
+
+        img_myPlane1.src="myPlane1.png";
+
+        var img_myPlane1_l=new Image();
+
+        img_myPlane1_l.src="myPlane1_l.png";
+
+        var img_myPlane1_r=new Image();
+
+        img_myPlane1_r.src="myPlane1_r.png";
+
+        var img_myBullet1=new Image();
+
+        img_myBullet1.src="myBullet1.png";
+
+        var img_sun=new Image();
+
+        img_sun.src="sun.png";
+
+        var s_d;//存储p1初始速度
+
+        var bArr=[];
+
+        var bNum=0;
+
+
+
+        /**主函数*/
+
+        var init=function(){
+
+
+
+            s_d=p1.s;
+
+            ctx=document.getElementById('canvas').getContext('2d');
+
+            run();
+
+            evlisten();
+
+        }
+
+        /**运行函数*/
+
+        var run=function(){
+
+            setInterval(bgMove,16);//背景滚动
+
+            setInterval(draw,16);//绘图
+
+        }
+
+        /**背景滚动*/
+
+        var bgMove=function(){
+
+            document.getElementById('canvas').width=window.innerWidth-100;
+
+            sunY+=bgspeed;
+
+            starY+=bgspeedd;
+
+            if(starY>700){
+
+                starY=-700;
+
+            }
+
+            if(sunY>700){
+
+                sunY=-700;
+
+                var k=Math.floor(Math.random()*6);
+
+                sunX=370-100*k;
+
+            }
+
+            if(ld&&p1.x>-15){sunX+=1;starX+=.3;}
+
+            if(rd&&p1.x<W-55){sunX-=1;starX-=.3;}
+
+
+
+        }
+
+        /**绘图*/
+
+        var draw=function(){
+
+            ctx.clearRect(0,0,W+200,H);
+
+
+
+            ctx.fillRect(0,0,W,H); //背景层
+
+            ctx.drawImage(img_star,starX,starY,600,1400);//背景层
+
+            ctx.drawImage(img_star,starX,starY-1400,600,1400);//背景层
+
+            ctx.drawImage(img_sun,sunX,sunY);//背景层
+
+            ctx.fillStyle='white';
+
+            ctx.fillRect(500,0,window.innerWidth-500,700);
+
+            ctx.fillStyle = 'black';
+
+            ctx.fillText("飞机坐标:"+p1.x+' '+p1.y, 520, 20);//输出信息
+
+            ctx.fillText("速    度:"+bgspeed+' fps:', 520, 40);
+
+            ctx.fillText("移动速度:"+p1.s, 520, 60);
+
+            p1.collision();
+
+            p1.move();
+
+            p1.draw();
+
+            for(i=0;i<bNum;i++){
+
+
+
+                bArr[i].move1();
+
+                bArr[i].draw();
+
+            }
+
+        }
+
+        /**键盘事件*/
+
+        var evlisten=function(){
+
+            //控制移动
+
+            document.addEventListener('keydown',function(e){
+
+                if(e.keyCode==68){rd=true;}
+
+                else if(e.keyCode==65){ld=true;}
+
+                else if(e.keyCode==87){ud=true;}
+
+                else if(e.keyCode==83){dd=true;}
+
+                else if(e.keyCode==32){sd=true;}
+
+            },false);
+
+            document.addEventListener('keyup',function(e){
+
+                if(e.keyCode==68){rd=false;}
+
+                else if(e.keyCode==65){ld=false;}
+
+                else if(e.keyCode==87){ud=false;}
+
+                else if(e.keyCode==83){dd=false;}
+
+                else if(e.keyCode==32){sd=false;}
+
+            },false);
+
+        }
+
+        /**飞机类*///--class
+
+        var Plane=function(x,y,w,h,s){                                      //飞机类
+
+            this.x=x;
+
+            this.y=y;
+
+            this.w=w;
+
+            this.h=h;
+
+            this.s=s;
+
+            this.move=function(){
+
+                if(ud){this.y-=this.s;}
+
+                if(dd){this.y+=this.s;}
+
+                if(rd){this.x+=this.s;}
+
+                if(ld){this.x-=this.s;}
+
+                if(sd){bgspeed+=0.05;this.s=2;if(bgspeed>20)bgspeed=20;}else{bgspeed-=0.2;if(bgspeed<5)bgspeed=5;this.s=s_d;}
+
+                if(sd){bgspeedd+=0.03;if(bgspeedd>10)bgspeedd=10;}else{bgspeedd-=0.1;if(bgspeedd<3)bgspeedd=3;}
+
+            }
+
+            //怎样画飞机
+
+            this.draw=function(){
+
+                if(rd)ctx.drawImage(img_myPlane1_r,this.x,this.y,this.w,this.h);
+
+                if(ld)ctx.drawImage(img_myPlane1_l,this.x,this.y,this.w,this.h);
+
+                if(!rd&&!ld)ctx.drawImage(img_myPlane1,this.x,this.y,this.w,this.h);
+
+            }
+
+            //墙面碰撞检测
+
+            this.collision=function(){
+
+                if(this.x>(W-55))this.x=(W-55);
+
+                if(this.y>(H-55))this.y=(H-55);
+
+                if(this.x<-15)this.x=-15;
+
+                if(this.y<-15)this.y=-15;
+
+            }
+
+        }
+
+        //飞机实例
+
+        var p1=new Plane(220,595,70,70,5);
+
+
+
+        var bNum;
+
+
+
+        /**子弹类*///--class
+
+        var Bullet=function(x,y,w,h,s,alive){
+
+            bNum=3;
+
+            var bLoc=true;
+
+            this.x=x;
+
+            this.y=y;
+
+            this.w=w;
+
+            this.h=h;
+
+            this.s=s;
+
+            this.move1=function(){
+
+
+
+                if(alive){
+
+                    this.y-=this.s;
+
+                }
+
+                if(this.y<0){
+
+                    this.y=100;
+
+                    bLoc=true;
+
+                    alive=false;
+
+
+
+                }
+
+            }
+
+            this.draw=function(){
+
+                ctx.fillStyle='yellow';
+
+                if(sd){
+
+                    alive=true;
+
+
+
+                }
+
+                if(alive){
+
+                    if(bLoc){
+
+                        this.x=p1.x+34;
+
+                        this.y=p1.y+34;
+
+                        bLoc=false;
+
+                    }
+
+                    ctx.fillRect(this.x,this.y-i*10,this.w,this.h);
+
+                }
+
+            }
+
+        }
+
+        //子弹实例
+
+        var b;
+
+        //var bAlive=true;
+
+        for(i=0;i<4;i++){
+
+            b=new Bullet(0,0,5,5,5,false,i);
+
+            bArr.push(b);
+
+        }
+
+        onload=init;
+
+    </script>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,58 @@
+<html><head>
+    <meta charset="UTF-8">
+    <title>开始</title>
+    <script src="jquery-1.8.3.min.js"></script>
+    <style>
+        .disable{
+
+        }
+        .dis{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="goout" class="dis" style="display: block;">
+<form>
+    <h1> Sword Man</h1>
+    Key your name : <input id="name" type="text" name="name">
+    <input id="join" type="button" value="参战">
+</form>
+</div>
+<script>
+    setTimeout(function(){
+        $('#goout').fadeIn('slow')
+        }
+    ,2000);
+    main=function(){
+
+        //console.log(localStorage.username);
+        if(typeof(localStorage)=='undefined'){
+            console.log(typeof(localStorage));
+            var a="var localStorage={};";
+            eval(a);
+        }
+        var username;
+        var name=document.getElementById('name');
+        var join=document.getElementById('join');
+        a=name.getAttribute('id');
+        setInterval(function(){
+            if(name.value==''){
+                join.disabled=true;
+            }else{
+                join.disabled=false;
+            }
+        },100);
+        $('#join').click(function(){
+
+            localStorage.username=name.value;
+            window.open ('swordMan1.0.html','newwindow','height=554,width=678,left=300,top=100,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+            //window.close();
+        });
+
+    }
+    onload=main;
+</script>
+
+</body></html>

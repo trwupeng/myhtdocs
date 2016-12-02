@@ -1,0 +1,373 @@
+<html lang="zh-CN" style="height: 100%"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="上一次不够尽兴?今天咱们玩个大的">
+    <meta name="keywords" content="寒小航,寒小航随意抽">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="any" mask="" href="/favicon.ico">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>发红包啦</title>
+    <style>
+        .tgh-subfl >*{
+            float: left;
+        }
+        .tgh-subfr >*{
+            float: right;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .tgh-subfl:after{
+            clear: both;
+            content: ".";
+            display: block;
+            visibility: hidden;
+            height: 0;
+        }
+        .bg-white{
+            background-image: linear-gradient(to bottom, #fcfcfc 0, white 100%);
+        }
+        .bg-black{
+            background-image: linear-gradient(to right,black 0,#333333 100%);
+        }
+        body{
+            position: relative;
+            font-family: Arial,微软雅黑;
+        }
+        .logOut{
+            cursor: pointer;
+            color: gray;
+        }
+        .logOut:hover{
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body role="document" style="height: 100%;">
+<div class="modal bs-example-modal-sm " id="loading" style="z-index: 9999;margin-top: 40%" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="text-align: center">
+            <img width="50" src="upload/img/loading.gif">
+        </div>
+    </div>
+</div>
+<div class="modal bs-example-modal-sm " id="alertShow" style="z-index: 9999;" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="text-align: center">
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form action="#" method="post" onSubmit="return false;" id="loginForm">
+                <div class="modal-body">
+                    <div class="alert alert-danger loginAlert" role="alert" style="display: none">错误</div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">手机号</label>
+                        <input name="phone" type="number" class="form-control" id="exampleInputEmail1" placeholder="手机号">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input name="pwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <a href="/index/register" class="btn">没有帐号?</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary ajaxLogin">登录</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div data-dismiss="alert" class="alert alert-dismissible" id="warning" role="alert" style="z-index: 9999;position: fixed;width: 100%;text-align: center;display: none;padding: 5px;">
+
+</div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">trwupeng</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="" id="nav-home"><a href="http://www.lianxi.com/kaifa/activity/head.html">首页</a></li>
+                <li class="dropdown active" id="nav-activity">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">活动<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://www.lianxi.com/kaifa/activity/index.html">抽奖</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+<!--                <li class="" id="nav-home"><a href="--><!--">社区</a></li>-->
+            </ul>
+            <div class="fr" style="color: #ffffff;line-height: 50px">
+                <a style="cursor: pointer;color: #ffffff" href="http://www.lianxi.com/kaifa/activity/index/login/index.html">登录</a>            </div>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div style="height: 50px;"></div>
+<script>
+    showLogin = function(){
+        console.log('showLogin...');
+        $('#loginModal').modal({})
+    }
+
+    navActive = function(id){
+        $('#'+id).addClass('active');
+    }
+    loading = {
+        show : function(msg){
+            $('#alertShow').find('.modal-content').html(msg)
+            $('#alertShow').modal({})
+        },
+        open : function(msg){
+            $('#loading').modal({})
+        },
+        close : function(){
+            $('#loading').modal('hide')
+        }
+    };
+    warning = {
+        error : function(msg){
+            this.typeInit();
+            $('#warning').addClass('alert-danger');
+            $('#warning').html(msg);
+            this.alert();
+        },
+        success : function(msg){
+            this.typeInit();
+            $('#warning').addClass('alert-success');
+            $('#warning').html(msg);
+            this.alert();
+        },
+        alert : function(){
+            $('#warning').slideDown();
+            setTimeout(function(){
+                warning.close();
+            },2000);
+        },
+        close : function(){
+            $('#warning').slideUp();
+        },
+        typeInit : function(){
+            $('#warning').removeClass('alert-success')
+            $('#warning').removeClass('alert-danger')
+        }
+    }
+    $(function(){
+        //高度100%减去margin
+        $('.marginHeightMax').each(function(){
+            var data = {}
+            data.top = $(this).css("marginTop").replace('px', '');
+            data.bottom = $(this).css("marginBottom").replace('px', '');
+            var jan = parseInt(data.top) + parseInt(data.bottom);
+            console.log($(this).height());
+            console.log(data);
+            $(this).height($(this).height() - jan);
+        });
+
+        $('.logOut').click(function(){
+            var api = '/index/logout?__VIEW__=json';
+            $.post(api,function(data){
+                location.href = '';
+            });
+        });
+
+        $('body').append("<img width='150' class='hidden-xs' style='max-width: 40%;position: absolute;right: 0;bottom: 0' src='upload/img/saosao.png'>");
+
+        $('.showLogin').click(showLogin);
+
+        $('.ajaxLogin').click(function(){
+            $('.loginAlert').hide();
+            var form = $(this).closest('form');
+            var args = form.serialize();
+            var api = '/index/login?__VIEW__=json&';
+            loading.open();
+            $.post(api+args,function(data){
+                loading.close();
+                if(data.code != 200){
+                    $('.loginAlert').html(data.msg);
+                    $('.loginAlert').show();
+                    console.log(data);
+                }else{
+                    location.href = '';
+                }
+            });
+        });
+    });
+</script><script src="js/jquery.countdown.min.js"></script>
+<style>
+.theNum{
+    font-size: 40px;
+}
+.theNum1{
+    font-size: 30px;
+}
+.theNum2{
+    font-size: 20px;
+}
+    .winNum{
+        font-size: 40px;
+        color: red;
+    }
+    .winMoney{
+        font-size: 40px;
+        color: red;
+    }
+
+</style>
+<div style="display: none">
+    <img src="upload/img/choujiang.jpg">
+</div>
+<div class="container" style="height: 100%">
+    <h1 class="page-header" style="position: relative"><span>抽奖</span><span style="color: #9e9e9e;font-size: 10px;bottom: 10px;;position: absolute;right: 0">今日 12 | 总共 180</span></h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">游戏规则</div>
+        <div class="panel-body">
+            <li>每个玩家每天可以按顺序领取一个中奖号码</li>
+            <li>号码领取时间: 08点-20点</li>
+            <li>如果玩家人数达标<code>(20)</code>,将会在当晚9点公布中奖号码</li>
+            <li>中奖号码 = <code>当天福彩3d结果</code>除以<code>参加人数</code>所得余数</li>
+            <li>奖金以支付宝<code>口令红包</code><a href="upload/img/kouling.png" target="_blank"><span class="glyphicon glyphicon-question-sign"></span></a>的形式发放,当日<code>22点</code>之前有效,逾期未兑换的视为自动放弃,奖金回归奖池</li>
+            <li>本活动最终解释权归站长所有</li>
+        </div>
+    </div>
+    <div>
+                    <button type="button" class="btn btn-default ">领取号码</button>
+            <span class="myNum">尚未领取号码</span>
+                <div>
+            <span class="">中奖号码 <span class="winNum">
+                    ?</span>                </span>
+        </div>
+        <div>
+            <span class="">奖池金额 <span class="winMoney">20</span>元
+        </span></div>
+                    <div class="tgh-subfl" style="">
+                <div>开奖倒计时 <span id="clock" style="font-size: 20px;"><span class="theNum2">0</span> 小时 <span class="theNum1">05</span> 分钟 <span class="theNum">38</span> 秒</span> </div>
+                <div style="height: 57px;line-height: 70px;"><span style="color: red;font-size: 10px;">&nbsp;如果人数未达标将不会开奖</span></div>
+            </div>
+                <h4>参加人数:</h4>
+        <div class="progress" style="margin-top: 10px;">
+            <div class="progress-bar progress-bar-success progress-bar-striped active " role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10" style="width: 10%">
+                <span class=""> 2</span>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" style="margin-top: 10px;">
+        <div class="panel-heading">今日取号记录</div>
+        <div class="panel-body numLog">
+            <li>130****4872 取得号码 1 <span style="color: #bfbfbf">@9 hours ago</span></li><li>131****8673 取得号码 0 <span style="color: #bfbfbf">@10 hours ago</span></li>
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="margin-top: 10px;">
+        <div class="panel-heading">中奖记录</div>
+        <div class="panel-body numLog">
+                            <div class="tgh-subfl">
+                <div>用户<code>156****2250</code>获得数字<code>6</code>,中了<code>15元</code>红包</div>
+                <div><span style="font-size: 10px;color: gray">( 福彩3d <code>774</code>=48×16+<code>6</code>)</span><span style="color: #bfbfbf"> @ 2 days ago</span></div>
+                </div>                <div class="tgh-subfl">
+                <div>用户<code>155****1386</code>获得数字<code>4</code>,中了<code>10元</code>红包</div>
+                <div><span style="font-size: 10px;color: gray">( 福彩3d <code>888</code>=68×13+<code>4</code>)</span><span style="color: #bfbfbf"> @ 3 days ago</span></div>
+                </div>                <div class="tgh-subfl">
+                <div>用户<code>155****1386</code>获得数字<code>7</code>,中了<code>8元</code>红包</div>
+                <div><span style="font-size: 10px;color: gray">( 福彩3d <code>157</code>=15×10+<code>7</code>)</span><span style="color: #bfbfbf"> @ 4 days ago</span></div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(function(){
+        navActive('nav-activity');
+        $('body').scrollspy('refresh')
+        $('body').scrollspy({target : '.scroll'})
+        $('.').click(function(){
+            var api = '/kaifa/activity/?__VIEW__=json';
+            loading.open();
+            $.post(api,function(data){
+                loading.close();
+                if(data.code == 401){
+                    showLogin();
+                }else if(data.code != 200){
+                    warning.error(data.msg);
+                }else{
+                    warning.success('恭喜,您获得号码 '+data.data.num);
+                    $('.myNum').html('我的号码 <span class="theNum">'+data.data.num+'</span>');
+                    $('.').remove();
+
+                }
+            });
+        });
+
+        $('.getRedCode').click(function(){
+            var api = '/activity/getRedCode?__VIEW__=json';
+            loading.open();
+            $.post(api , function(data){
+                loading.close();
+                if(data.code == 200){
+                    loading.show(data.data['redCode']);
+                }else{
+                    warning.error(data.msg);
+                }
+            });
+        });
+
+        var twoDaysFromNow = '1479646800000';
+        console.log(twoDaysFromNow);
+        $('#clock').countdown(twoDaysFromNow, function(event) {
+            var totalHours = event.offset.totalDays * 24 + event.offset.hours;
+            $(this).html(event.strftime('<span class="theNum2">'+totalHours + '</span> 小时 <span class="theNum1">%M</span> 分钟 <span class="theNum">%S</span> 秒'));
+        });
+
+    });
+
+</script><img width="150" class="hidden-xs" style="max-width: 40%;position: absolute;right: 0;bottom: 0" src="upload/img/saosao.png"></body></html>

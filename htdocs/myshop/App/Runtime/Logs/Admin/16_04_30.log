@@ -1,0 +1,44 @@
+[ 2016-04-30T19:08:07+08:00 ] 127.0.0.1 /admin.php/Admin/Role/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.070004s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.042002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.042002s ]
+SQL: SHOW COLUMNS FROM `it_role` [ RunTime:2.4981s ]
+SQL: SELECT a.id,a.role_name,group_concat(c.priv_name) priv_list FROM `it_role` a left join it_role_privilege b on a.id=b.role_id left join it_privilege c on b.priv_id=c.id  GROUP BY a.id  [ RunTime:0.5550s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.248014s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.248014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.130008s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.130008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.056003s ]
+INFO: [ app_end ] --END-- [ RunTime:0.056003s ]
+
+[ 2016-04-30T19:08:28+08:00 ] 127.0.0.1 /admin.php/Admin/admin/lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `it_admin` [ RunTime:0.3050s ]
+SQL: SELECT a.id,a.admin_name,c.role_name FROM `it_admin` a left join it_admin_role b on a.id=b.admin_id left join it_role c on c.id=b.role_id    [ RunTime:0.1650s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

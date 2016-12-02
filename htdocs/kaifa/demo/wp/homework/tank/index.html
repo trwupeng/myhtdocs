@@ -1,0 +1,1561 @@
+<html><head>
+
+<meta http_equiv="content-type" content="text/html;charset=utf-8">
+
+<style>
+
+    body{margin: 0;position: absolute;width: 100%;height: 100%}
+
+    canvas{display: block;margin: 20px auto;border: 2px solid #333}
+
+</style>
+
+<title>tank7.0</title>
+
+<script>
+
+    var img_bg=new Image();
+
+    img_bg.src="bg_1.gif";
+
+    var img_bullet=new Image();
+
+    img_bullet.src="ball.gif";
+
+    var img_bullet2=new Image();
+
+    img_bullet2.src="ball1.gif";
+
+    var img_die=new Image();
+
+    img_die.src="tank_over.gif";
+
+
+
+    var img_red=new Image();
+
+    img_red.src="redkiller.gif";
+
+    var img_talk=new Image();
+
+    img_talk.src="talk.gif";
+
+
+
+    var img_up=new Image();
+
+    var img_down=new Image();
+
+    var img_left=new Image();
+
+    var img_right=new Image();
+
+    img_up.src="tank_up.gif";
+
+    img_down.src="tank_down.gif";
+
+    img_left.src="tank_left.gif";
+
+    img_right.src="tank_right.gif";
+
+
+
+    var img_up1=new Image();
+
+    var img_down1=new Image();
+
+    var img_left1=new Image();
+
+    var img_right1=new Image();
+
+    img_up1.src="tank_up1.gif";
+
+    img_down1.src="tank_down1.gif";
+
+    img_left1.src="tank_left1.gif";
+
+    img_right1.src="tank_right1.gif";
+
+
+
+    var img_track_ld=new Image();
+
+    img_track_ld.src="track_ld.gif";
+
+    var img_track_rd=new Image();
+
+    img_track_rd.src="track_rd.gif";
+
+    var img_track_ud=new Image();
+
+    img_track_ud.src="track_ud.gif";
+
+    var img_track_dd=new Image();
+
+    img_track_dd.src="track_dd.gif";
+
+
+
+
+
+
+
+var Tank=function(){
+
+    var     id,ctx, W, H,track1,tr=1,d_x,red_x,redfire=false,reddir=false,
+
+            rd=false,ld=false,ud=false,dd=false,sd=false,fire=false,bco=true,fire2=false,bco2=true,sd2=false,
+
+            x1=200,y1=200,w1=40,h1=55,s1=1,d1=0,sp1= 0,alive1=true,   //玩家
+
+            x2=600,y2=540,w2=60,h2=60,s2=0,d2=0,sp2= 3,alive2=true, //电脑
+
+            //子弹属性
+
+            bx=0,by=0,bw=15,bh=15,bd,bs= 2,
+
+            bx2=0,by2=0,bw2=15,bh2=15,bd2,bs2,
+
+            reborn=false;
+
+    var     //随机数
+
+            ch1,
+
+            //玩家死亡次数统计
+
+            dead=false,deadnum=0,
+
+            //redkiller属性
+
+            redx=375,redy=625,redw=50,redh=50,redsp=3,redalive=true,redreborn=true,
+
+            rfx,second1= 0,second2= 0,
+
+            cpureborn=true,talk=true,
+
+            score= 0,
+
+            //强制敌人朝向
+
+            passdir,movebegin=false,life= 3,zhongdan=true,zhongdan2=true,zhongdan3=true
+
+            ;
+
+
+
+
+
+
+
+    var init=function(id){
+
+        var canvas=document.getElementById(id);
+
+        ctx=canvas.getContext('2d');
+
+
+
+        W=800;
+
+        H=600;
+
+
+
+        this.run();
+
+        this.evListen();
+
+    }
+
+    init.prototype={
+
+        run:function(){
+
+            var _this=this;
+
+           // setInterval(function(){_this.track1();},16);
+
+            setInterval(function(){_this.acc1();},100);
+
+            setInterval(function(){_this.redfire();},500);
+
+            setInterval(function(){_this.draw();},16);
+
+            setInterval(function(){_this.clock();},500);
+
+            setInterval(function(){_this.clock2();},16);
+
+
+
+
+
+
+
+        },
+
+        //绘图
+
+
+
+        draw:function(){
+
+            this.tankpath();
+
+            this.track1();
+
+            this.deadnum();
+
+            this.cpureborn();
+
+            this.redreborn();
+
+            ctx.clearRect(0,0,800,700);
+
+
+
+
+
+            // ctx.drawImage(img_up,200,200,60,60);
+
+            ctx.strokeRect(0,0,W,H);
+
+            this.bullet1();
+
+            this.bullet2();
+
+            // this.acc1();
+
+            this.tank(x1,y1,w1,h1,s1,d1,sp1,alive1);
+
+            this.tank(x2,y2,w2,h2,s2,d2,sp2,alive2);
+
+            this.redkiller();
+
+            this.drawredfire();
+
+            ctx.strokeStyle='black';
+
+            ctx.strokeRect(0,600,800,50);
+
+            ctx.font = '30pt 微软雅黑';
+
+            if(!reborn){
+
+                ctx.fillStyle = '#999';
+
+            }else{
+
+                ctx.fillStyle = 'black';
+
+            }
+
+            ctx.fillText('复活', 0, 690);
+
+            ctx.fillStyle = '#999';
+
+            ctx.fillText(deadnum, 230, 690);
+
+            ctx.fillText(score, 375, 690);
+
+            ctx.fillText(life, 535, 690);
+
+            ctx.font = '20pt 微软雅黑';
+
+            ctx.fillText('死亡次数：', 100, 690);
+
+            ctx.fillText('得分：', 300, 690);
+
+            ctx.fillText('生命：', 450, 690);
+
+            ctx.fillText('汤高航作品', 610, 690);
+
+            ctx.font = '10pt 微软雅黑';
+
+
+
+            if(!alive1){
+
+                if(talk){
+
+                    second2=0;
+
+                    talk=false;
+
+                }
+
+                if(second2<=35)ctx.drawImage(img_talk,x2,y2-89);
+
+                ctx.fillStyle = 'black';
+
+                ctx.font = '10pt 微软雅黑';
+
+                if(second2==1||second2==0){
+
+                    ctx.fillText('坑货!', x2+20, y2-60);
+
+                }else{
+
+                    if(second2<=5)ctx.fillText('滚粗!', x2+20, y2-60);
+
+                    if(second2>5&&second2<=10)ctx.fillText('复活吧亲!', x2+10, y2-60);
+
+                    if(second2>10&&second2<=15)ctx.fillText('战个痛快!', x2+10, y2-60);
+
+                    if(second2>15&&second2<=20)ctx.fillText('怕了么坑货', x2+8, y2-60);
+
+                    if(second2>20&&second2<=25)ctx.fillText('不动让你打', x2+8, y2-60);
+
+                    if(second2>25&&second2<=30)ctx.fillText('老子不开枪', x2+8, y2-60);
+
+                    if(second2>30&&second2<=35)ctx.fillText('照样虐你!', x2+10, y2-60);
+
+
+
+                    if(second2>35){
+
+                        ctx.drawImage(img_talk,x2,y2-89,160,56);
+
+                        ctx.fillText('敢不敢复活啊坑货！', x2+20, y2-60);
+
+                    }
+
+                    ctx.drawImage(img_talk,x1,y1-89);
+
+                    ctx.fillText('你妹啊！', x1+20, y1-60);
+
+
+
+                }
+
+            }
+
+            ctx.fillText('tank7.0', 750, 690);
+
+            ctx.font = '80pt Calibri';
+
+            ctx.fillStyle = '#999';
+
+            if(life==0)ctx.fillText('GAME OVER !', 130, 200);
+
+
+
+        },
+
+        //计时器
+
+        clock:function(){
+
+            second1++;
+
+            second2++;
+
+            var b = document.getElementById('bgm');
+
+            if(b.ended){
+
+                var c=document.getElementById('sad');
+
+                c.play();
+
+            }
+
+        },
+
+        clock2:function(){
+
+            if(jgfire){
+
+                jgclock++;
+
+            }else{
+
+                jgclock=0;
+
+            }
+
+        },
+
+        //敌人复活
+
+        cpureborn:function(){
+
+            if(!alive2&&cpureborn){
+
+                score+=10;
+
+                second1=0;
+
+                cpureborn=false;
+
+            }else if(!alive2){
+
+                if(second1==4){
+
+                    alive2=true;
+
+                    cpureborn=true;
+
+                    zhongdan2=true;
+
+                }
+
+            }
+
+        },
+
+        redreborn:function(){
+
+            if(!redalive&&redreborn){
+
+                second2=0;
+
+                redreborn=false;
+
+            }else if(!redalive){
+
+                if(second2==4){
+
+                    redalive=true;
+
+                    redreborn=true;
+
+                    zhongdan3=true;
+
+                }
+
+            }
+
+        },
+
+        //统计死亡次数
+
+        deadnum:function(){
+
+            if(dead&&!alive1){
+
+                deadnum++;
+
+                dead=false;
+
+            }
+
+            if(alive1)dead=true;
+
+        },
+
+        //redkiller开火设定
+
+        redfire:function(){
+
+            ch1=Math.floor(Math.random()*4);
+
+
+
+            if(red_x==redx){
+
+                rfx=redx;
+
+                redfire=true;
+
+            }else{
+
+                red_x=redx;
+
+                redfire=false;
+
+            }
+
+        },
+
+        //绘制激光
+
+        drawredfire:function(){
+
+           if(redfire&&redalive&&second2>4){
+
+               ctx.strokeStyle='red';
+
+               ctx.strokeRect(rfx-3,0,6,600);
+
+               if(alive1){                                                             //中激光判定
+
+                   switch (d1){
+
+                       case 0:
+
+                       case 1:
+
+                           if(x1>rfx-3-w1/2&&x1<rfx+3+w1/2){
+
+                               alive1=false;
+
+                               if(zhongdan){
+
+                                   life--;
+
+                                   this.redfireplay();
+
+                                  // this.boomplay();
+
+                                   zhongdan=false;
+
+                               }
+
+                           }
+
+                           break;
+
+                       case 2:
+
+                       case 3:
+
+                           if(x1>rfx-3-h1/2&&x1<rfx+3+h1/2){
+
+                               alive1=false;
+
+                               if(zhongdan){
+
+                                   life--;
+
+                                   this.redfireplay();
+
+                                   //this.boomplay();
+
+                                   zhongdan=false;
+
+                               }
+
+                           }
+
+
+
+                   }
+
+               }
+
+           }
+
+        },
+
+
+
+        //特效&速度初始化&中弹判定
+
+        track1:function(){
+
+            if(d_x!=d1){
+
+                sp1=0;
+
+                d_x=d1;
+
+            }
+
+//||((y2-y1)*(y2-y1))<900
+
+            tr+=1;
+
+            if(tr==6)tr=3;
+
+                                                                           //经过敌人时，敌人强制开火
+
+            if(alive1){
+
+                if((x2-x1)*(x2-x1)<400){
+
+                    if(y2>y1){
+
+
+
+                        passdir=0;
+
+                    }else{
+
+
+
+                        passdir=1;
+
+                    }
+
+                    jgfire=true;
+
+                    if(jgclock>1)sd2=true;
+
+                }else if((y2-y1)*(y2-y1)<400){
+
+                    if(x2>x1){
+
+
+
+                        passdir=2;
+
+                    }else{
+
+
+
+                        passdir=3;
+
+                    }
+
+                    jgfire=true;
+
+                    if(jgclock>1)sd2=true;
+
+                }else{
+
+                    passdir=4;
+
+                    sd2=false;
+
+                    jgfire=false;
+
+                }
+
+            }else{
+
+                passdir=4;
+
+            }
+
+            var dis=(x1-bx2)*(x1-bx2)+(y1-by2)*(y1-by2);
+
+            var Dis=(w1/2+bw2/2)*(w1/2+bw2/2);
+
+            if(dis<Dis){
+
+                 alive1=false;
+
+                if(zhongdan){
+
+                    this.boomplay();
+
+                    life--;
+
+                    zhongdan=false;
+
+                }
+
+
+
+            }
+
+
+
+
+
+
+
+            if(!alive1){                                                //子弹位置初始化
+
+                bx=-10;
+
+                by=-10;
+
+            }
+
+            if(!alive2){
+
+                bx2=-10;
+
+                by2=-10;
+
+            }
+
+            var dis=(x2-bx)*(x2-bx)+(y2-by)*(y2-by);                      //敌人中弹
+
+            var Dis=(w2/2+bw/2)*(w2/2+bw/2);
+
+            if(dis<Dis){
+
+
+
+                alive2=false;
+
+                if(zhongdan2){
+
+                    this.boomplay();
+
+                    if(life<5)life++;
+
+                    zhongdan2=false;
+
+                }
+
+            }
+
+            var dis=(redx-bx)*(redx-bx)+(redy-by)*(redy-by);                      //敌人中弹
+
+            var Dis=(redw/2+bw/2)*(redw/2+bw/2);
+
+            if(dis<Dis){
+
+
+
+                redalive=false;
+
+                if(zhongdan3){
+
+                    this.boomplay();
+
+
+
+                    if(life<5)life++;
+
+                    score+=10;
+
+                    zhongdan3=false;
+
+                }
+
+            }
+
+        },
+
+        //redkiller行进路线
+
+        redkiller:function(){
+
+            var X=redx-25;
+
+            var Y=redy-25;
+
+                if(redalive){
+
+                    if(alive1){
+
+                        if(redx>x1&&redx-x1>5){
+
+                            redx-=redsp;
+
+                        }else if(redx<x1&&x1-redx>5){
+
+                            redx+=redsp;
+
+                        }
+
+                    }else{
+
+                        if(!reddir){
+
+                            redx-=redsp;
+
+                            if(redx<25)reddir=true;
+
+                        }else{
+
+                            redx+=redsp;
+
+                            if(redx>775)reddir=false;
+
+                        }
+
+                    }
+
+                }
+
+            if(redalive){
+
+                ctx.drawImage(img_red,X,Y,redw,redh);
+
+            }else{
+
+
+
+                ctx.drawImage(img_die,X,Y,40,40);
+
+            }
+
+        },
+
+
+
+        //加速度
+
+        acc1:function(){
+
+
+
+            if(!ud&&!dd&&!ld&&!rd){
+
+                //acc=false;
+
+                sp1-=2;
+
+                if(sp1<0)sp1=0;
+
+            }else{
+
+                sp1+=1.5;
+
+                if(sp1>10)sp1=10;
+
+            }
+
+            bs+=1;
+
+            bs2+=1;
+
+        },
+
+        bullet2:function(){
+
+            if(sd2){
+
+                fire2=true;
+
+            }
+
+            if(fire2&&bco2){
+
+                bx2=x2;
+
+                by2=y2;
+
+                bd2=d2;
+
+                bs2=12;        //敌人子弹初始速度
+
+
+
+                bco2=false;
+
+            }
+
+
+
+            if(fire2&&alive2&&(second2<=20||alive1)){
+
+
+
+                ctx.drawImage(img_bullet2,bx2-bw2/2,by2-bh2/2,bw2,bh2);
+
+                switch(bd2){
+
+                    case 0:
+
+                        by2-=bs2;
+
+                        break;
+
+                    case 1:
+
+                        by2+=bs2;
+
+                        break;
+
+                    case 2:
+
+                        bx2-=bs2;
+
+                        break;
+
+                    case 3:
+
+                        bx2+=bs2;
+
+                        break;
+
+                }
+
+                //bx+=sp;
+
+                if(bx2>800||bx2<0||by2<0||by2>600){
+
+                    bx=-10;
+
+                    by=-10;
+
+                    fire2=false;
+
+                    bco2=true;
+
+                }
+
+            }
+
+        },
+
+        fireplay:function(){                                          //音效文件
+
+            var a = document.getElementById('fire');
+
+           // a.src = 'fire.wav';
+
+            a.currentTime= 0;
+
+
+
+            a.play();
+
+
+
+
+
+        },
+
+
+
+        boomplay:function(){
+
+            var a = document.getElementById('boom');
+
+
+
+            a.currentTime= 0;
+
+
+
+            a.play();
+
+        },
+
+        redfireplay:function(){                                          //音效文件
+
+            var a = document.getElementById('redfire');
+
+            a.currentTime= 0;
+
+
+
+            a.play();
+
+        },
+
+
+
+        bullet1:function(){
+
+            if(sd){
+
+                fire=true;
+
+            }
+
+            if(fire&&bco){
+
+                bx=x1;
+
+                by=y1;
+
+                bd=d1;
+
+                bs=20;
+
+                bco=false;
+
+                this.fireplay();
+
+            }
+
+            if(fire&&alive1){
+
+
+
+                ctx.drawImage(img_bullet,bx-bw/2,by-bh/2,bw,bh);
+
+                switch(bd){
+
+                    case 0:
+
+                        by-=bs;
+
+                        break;
+
+                    case 1:
+
+                        by+=bs;
+
+                        break;
+
+                    case 2:
+
+                        bx-=bs;
+
+                        break;
+
+                    case 3:
+
+                        bx+=bs;
+
+                        break;
+
+                }
+
+                //bx+=sp;
+
+                if(bx>800||bx<0||by<0||by>600){
+
+                    fire=false;
+
+                    bco=true;
+
+                }
+
+            }
+
+        },
+
+        //敌人行进路线
+
+        tankpath:function(){
+
+            if(alive2&&(second2<=20||second2>25)){
+
+                if(alive1){
+
+                    if((x2>x1&&(ch1==0||ch1==3))||passdir==2){
+
+                        x2-=sp2;
+
+                        d2=2;
+
+                        ch1=0;
+
+                    }
+
+
+
+                    if((x2<x1&&(ch1==0||ch1==3))||passdir==3){
+
+                        x2+=sp2;
+
+                        d2=3;
+
+                        ch1=0;
+
+                    }
+
+                    if((y2<y1&&(ch1==1||ch1==2))||passdir==1){
+
+                        y2+=sp2;
+
+                        d2=1;
+
+                        ch1=1;
+
+                    }
+
+                    if((y2>y1&&(ch1==1||ch1==2))||passdir==0){
+
+                        y2-=sp2;
+
+                        d2=0;
+
+                        ch1=1;
+
+                    }
+
+                }else{
+
+                    if(ch1==0&&x2>w2/2){
+
+                        x2-=sp2;
+
+                        d2=2;
+
+                    }
+
+
+
+                    if(ch1==3&&x2<W-w2/2){
+
+                        x2+=sp2;
+
+                        d2=3;
+
+                    }
+
+                    if(ch1==1&&y2<H-h2/2){
+
+                        y2+=sp2;
+
+                        d2=1;
+
+                    }
+
+                    if(ch1==2&&y2>h2/2){
+
+                        y2-=sp2;
+
+                        d2=0;
+
+                    }
+
+                }
+
+            }
+
+        },
+
+
+
+        //绘制坦克
+
+        tank:function(x,y,w,h,style,dir,sp,alive){
+
+
+
+            var X=x-w/2;
+
+            var Y=y-h/2;
+
+            if(style==1){
+
+                if(Y<0){
+
+                    //Y=0;
+
+                    y1=h/2;
+
+
+
+                }
+
+
+
+                if(Y>H-h){
+
+                    //Y=H-h;
+
+                    y1=H-h/2;
+
+                }
+
+                var X1=x-h/2;
+
+                var Y1=y-w/2;
+
+                if(X1<0){
+
+                    //X1=0;
+
+                    x1=h/2;
+
+                }
+
+                if(X1>W-h){
+
+                    //X1=W-h;
+
+                    x1=W-h/2;
+
+                }
+
+            }
+
+
+
+            if(alive){
+
+                switch(style){
+
+                    case 0:
+
+
+
+                        switch (dir){
+
+                            default :
+
+                                ctx.drawImage(img_up,X,Y,w,h);
+
+                                break;
+
+                            case 0:
+
+                                ctx.drawImage(img_up,X,Y,w,h);
+
+                                break;
+
+                            case 1:
+
+                                ctx.drawImage(img_down,X,Y,w,h);
+
+                                break;
+
+                            case 2:
+
+                                ctx.drawImage(img_left,X,Y,w,h);
+
+                                break;
+
+                            case 3:
+
+                                ctx.drawImage(img_right,X,Y,w,h);
+
+                                break;
+
+                        }
+
+                        break;
+
+                    case 1:
+
+
+
+                        switch (dir){
+
+                            default :
+
+                                ctx.drawImage(img_up1,X,Y,w,h);
+
+                                break;
+
+                            case 0:
+
+
+
+                                if(ud&&!ld&&!rd&&!dd&&Y>0){
+
+
+
+
+
+
+
+                                    y1-=sp;
+
+                                    //if(y1<h/2)Y=0;
+
+                                    for(var i=0;i<tr;i++){
+
+                                        ctx.drawImage(img_track_ud,X,Y+h+6*i,w,6);
+
+                                    }
+
+                                }else{
+
+                                    firebegin=false;
+
+                                    //if(y1<h/2)Y=0;
+
+                                    if(!ud&&!dd&&!ld&&!rd&&Y>0){
+
+                                        y1-=sp;
+
+                                    }
+
+                                    tr=1;
+
+                                    //sp1=0;
+
+                                }
+
+                                    //ctx.fillRect(X+3,Y+6,w,h);
+
+                                ctx.drawImage(img_up1,X,Y,w,h);
+
+                                break;
+
+                            case 1:
+
+                                if(dd&&!ld&&!rd&&!ud&&Y<H-h){
+
+
+
+
+
+
+
+                                    y1+=(sp);
+
+                                    for(var i=0;i<tr;i++){
+
+                                        ctx.drawImage(img_track_dd,X,Y-6-6*i,w,6);
+
+                                    }
+
+                                }else{
+
+
+
+                                    if(!ud&&!dd&&!ld&&!rd&&Y<H-h){
+
+                                        y1+=sp;
+
+                                    }
+
+                                    tr=1;
+
+                                    //sp1=0;
+
+                                }
+
+                                //ctx.fillRect(X+3,Y+6,w,h);
+
+                                ctx.drawImage(img_down1,X,Y,w,h);
+
+                                break;
+
+                            case 2:
+
+                                if(ld&&!ud&&!dd&&!rd&&X1>0){
+
+
+
+                                    x1-=sp;
+
+                                    for(var i=0;i<tr;i++){
+
+                                        ctx.drawImage(img_track_ld,X1+h+6*i,Y1,6,w);
+
+                                    }
+
+                                }else{
+
+
+
+                                    if(!ud&&!dd&&!ld&&!rd&&X1>0){
+
+                                        x1-=sp;
+
+                                    }
+
+                                    tr=1;
+
+                                    //sp1=0;
+
+                                }
+
+                                //ctx.fillRect(X1+3,Y1+6,h,w);
+
+                                ctx.drawImage(img_left1,X1,Y1,h,w);
+
+                                break;
+
+                            case 3:
+
+                                if(rd&&!ud&&!dd&&!ld&&X1<W-h){
+
+
+
+                                    x1+=sp;
+
+                                    for(var i=0;i<tr;i++){
+
+                                        ctx.drawImage(img_track_rd,X1-6-6*i,Y1,6,w);
+
+                                    }
+
+                                }else{
+
+
+
+                                    if(!ud&&!dd&&!ld&&!rd&&X1<W-h){
+
+                                        x1+=sp;
+
+                                    }
+
+                                    tr=1;
+
+                                    //sp1=0;
+
+                                }
+
+                                //ctx.fillRect(X1,Y1+6,h-3,w);
+
+                                ctx.drawImage(img_right1,X1,Y1,h,w);
+
+                                break;
+
+                        }
+
+                        break;
+
+                }
+
+            }else{
+
+                if(life==0){
+
+                    ctx.drawImage(img_die,x-45,y-45,90,90);
+
+                }else{
+
+                    ctx.drawImage(img_die,x-20,y-20,40,40);
+
+                }
+
+            }
+
+
+
+
+
+        },
+
+
+
+        evListen:function(){
+
+            document.addEventListener('keydown',function(e){
+
+                if(e.keyCode==68){rd=true;d1=3;}
+
+                else if(e.keyCode==65){ld=true;d1=2;}
+
+                else if(e.keyCode==87){ud=true;d1=0;}
+
+                else if(e.keyCode==83){dd=true;d1=1;}
+
+                else if(e.keyCode==32){sd=true}
+
+                else if(e.keyCode==82){
+
+                    alive1=true;
+
+                    if(life<1)score=0;
+
+                    talk=true;
+
+                    zhongdan=true;
+
+                    if(life<1)life=3;
+
+                }
+
+            },false);
+
+            document.addEventListener('keyup',function(e){
+
+                if(e.keyCode==68)rd=false;
+
+                else if(e.keyCode==65)ld=false;
+
+                else if(e.keyCode==87)ud=false;
+
+                else if(e.keyCode==83)dd=false;
+
+                else if(e.keyCode==32)sd=false;
+
+            },false);
+
+            document.addEventListener('mousedown',function(e){
+
+                var mx,my;
+
+                if(e.layerX|| e.layerX==0){
+
+                    mx= e.layerX;
+
+                    my= e.layerY;
+
+                }else if(e.offsetX|| e.offsetX==0){
+
+                    mx= e.offsetX;
+
+                    my= e.offsetY;
+
+                }
+
+                if(mx>0&&mx<90&&my>600&&my<700){
+
+                    alive1=true;
+
+                    if(life<1)score=0;
+
+                    talk=true;
+
+                    zhongdan=true;
+
+                    if(life<1)life=3;
+
+                }
+
+            },false);
+
+            document.addEventListener('mousemove',function(e){
+
+                var mx,my;
+
+                if(e.layerX|| e.layerX==0){
+
+                    mx= e.layerX;
+
+                    my= e.layerY;
+
+                }else if(e.offsetX|| e.offsetX==0){
+
+                    mx= e.offsetX;
+
+                    my= e.offsetY;
+
+                }
+
+                if(mx>0&&mx<90&&my>650&&my<700){
+
+                    reborn=true;
+
+                }else{reborn=false;}
+
+            },false);
+
+        },
+
+
+
+
+
+    }
+
+
+
+    return init;
+
+}();
+
+var main=function(){
+
+    new Tank('canvas')
+
+}
+
+
+
+onload=main;
+
+
+
+</script>
+
+</head>
+
+<body>
+
+
+
+<canvas id="canvas" width="800" height="700">Your Broswer don't support html5 canvas</canvas>
+
+<!--<button align="center" name="a" id="a" type="button" onclick="est();">submit</button>-->
+
+<center><font face="微软雅黑" color="#999">操作说明：wasd键控制方向，空格键射击，r键复活</font></center>
+
+<audio id="bgm" autoplay="autoplay">
+
+    <!--<source src="/i/song.ogg" type="audio/ogg">-->
+
+    <source src="bgm.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <audio src="fire.wav" id="fire">
+
+    </audio>
+
+<audio src="boom.wav" id="boom">
+
+</audio>
+
+<audio src="jiguang.mp3" id="redfire">
+
+</audio>
+
+<audio src="http://itaxi.pw/sad.mp3" id="sad">
+
+</audio>
+
+
+
+</body></html>
